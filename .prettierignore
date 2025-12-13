@@ -1,0 +1,4 @@
+# Ignore artifacts:
+*.lock
+*-lock.json
+*-lock.yaml
