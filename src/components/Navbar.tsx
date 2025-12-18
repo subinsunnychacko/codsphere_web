@@ -66,11 +66,20 @@ export default function Navbar() {
         >
           {/* Left side - Logo */}
           <Link href="/" aria-label="CodSphere" className="flex items-stretch">
-            <Image
+          {/* <Image
               src={web_page_logo_white}
               alt="CodSphere logo"
               className="object-contain h-[25px] sm:h-[28px] lg:h-[32px] w-auto"
               priority
+            /> */}
+             <Image
+              src={web_page_logo_white}
+              alt="CodSphere logo"
+              className="object-contain w-auto h-full" 
+              width={320}
+              height={64}
+              priority
+              quality={100} 
             />
           </Link>
 
