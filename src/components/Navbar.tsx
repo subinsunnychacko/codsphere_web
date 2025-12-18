@@ -76,8 +76,6 @@ export default function Navbar() {
               src={web_page_logo_white}
               alt="CodSphere logo"
               className="object-contain w-auto h-full" 
-              width={320}
-              height={64}
               priority
               quality={100} 
             />
