@@ -4,7 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
-import web_page_logo_white from "@/assets/web-page-logo-white.svg";
+import web_page_logo_white from "@/assets/Logo_Full.svg";
+// import web_page_logo_white from "@/assets/web-page-logo-white.svg";
 import web_page_logo_icon_white from "@/assets/web-page-logo-icon-white.svg";
 
 export default function Navbar() {
