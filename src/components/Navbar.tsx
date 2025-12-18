@@ -75,9 +75,8 @@ export default function Navbar() {
              <Image
               src={web_page_logo_white}
               alt="CodSphere logo"
-              className="object-contain h-[25px] sm:h-[28px] lg:h-[32px] w-auto" 
+              className="h-[24px] sm:h-[28px] lg:h-[32px] w-autoo" 
               priority
-              quality={100} 
             />
           </Link>
 
