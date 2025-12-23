@@ -233,7 +233,7 @@ export const ContactForm = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Enter your full name"
-                  className="w-full h-[44px] md:h-[46px] bg-[#F3F3F3] rounded-[10px] md:rounded-[13px] px-3 md:px-4    text-[14px] md:text-[15px] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black/10 transition-all"
+                  className="w-full h-11 md:h-[46px] bg-[#F3F3F3] rounded-[10px] md:rounded-[13px] px-3 md:px-4    text-[14px] md:text-[15px] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black/10 transition-all"
                   required
                   disabled={formStatus.type === "loading"}
                 />
@@ -251,7 +251,7 @@ export const ContactForm = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Enter your email address"
-                  className="w-full h-[44px] md:h-[46px] bg-[#F3F3F3] rounded-[10px] md:rounded-[13px] px-3 md:px-4    text-[14px] md:text-[15px] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black/10 transition-all"
+                  className="w-full h-11 md:h-[46px] bg-[#F3F3F3] rounded-[10px] md:rounded-[13px] px-3 md:px-4    text-[14px] md:text-[15px] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black/10 transition-all"
                   required
                   disabled={formStatus.type === "loading"}
                 />
@@ -268,7 +268,7 @@ export const ContactForm = () => {
                     name="purpose"
                     value={formData.purpose}
                     onChange={handleChange}
-                    className="w-full h-[44px] md:h-[46px] bg-[#F3F3F3] rounded-[10px] md:rounded-[13px] px-3 md:px-4 pr-10    text-[14px] md:text-[15px] appearance-none focus:outline-none focus:ring-2 focus:ring-black/10 cursor-pointer text-gray-600 transition-all"
+                    className="w-full h-11 md:h-[46px] bg-[#F3F3F3] rounded-[10px] md:rounded-[13px] px-3 md:px-4 pr-10    text-[14px] md:text-[15px] appearance-none focus:outline-none focus:ring-2 focus:ring-black/10 cursor-pointer text-gray-600 transition-all"
                     required
                     disabled={formStatus.type === "loading"}
                   >
@@ -328,86 +328,86 @@ export const ContactForm = () => {
             />
 
             {/* Bottom section */}
-            <div className="flex flex-row gap-6 justify-between items-end">
-              <div className="flex flex-col gap-3">
-                {/* Attach file or show selected file */}
-                {selectedFile ? (
-                  <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-lg">
-                    <svg
-                      className="w-5 h-5 text-green-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
+            <div className="flex flex-col gap-3">
+              {/* Attach file or show selected file */}
+              {selectedFile ? (
+                <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-lg">
+                  <svg
+                    className="w-5 h-5 text-green-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span className="text-[14px] text-gray-700 max-w-[200px] truncate">
+                    {selectedFile.name}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={removeFile}
+                    className="ml-2 text-red-500 hover:text-red-700"
+                    disabled={formStatus.type === "loading"}
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        d="M6 18L18 6M6 6l12 12"
                       />
                     </svg>
-                    <span className="text-[14px] text-gray-700 max-w-[200px] truncate">
-                      {selectedFile.name}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={removeFile}
-                      className="ml-2 text-red-500 hover:text-red-700"
-                      disabled={formStatus.type === "loading"}
-                    >
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={triggerFileInput}
-                    className="flex items-center gap-2 text-black hover:text-black/60 text-[20px] hover:opacity-70 transition-colors"
-                    disabled={formStatus.type === "loading"}
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
-                      />
-                    </svg>
-                    <span>Attach file</span>
                   </button>
-                )}
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  onClick={triggerFileInput}
+                  className="flex items-center gap-2 text-black hover:text-black/60 text-[20px] hover:opacity-70 transition-colors"
+                  disabled={formStatus.type === "loading"}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
+                    />
+                  </svg>
+                  <span>Attach file</span>
+                </button>
+              )}
 
-                {/* Privacy checkbox */}
-                <label className="flex items-center gap-2 text-[20px] text-black cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={agreedToPrivacy}
-                    onChange={(e) => setAgreedToPrivacy(e.target.checked)}
-                    required
-                    className="w-4 h-4 rounded border-gray-300"
-                    disabled={formStatus.type === "loading"}
-                  />
-                  <span>I agree to personal data processing</span>
-                </label>
-              </div>
+              {/* Privacy checkbox */}
+              <label className="flex items-center gap-2 text-sm text-black cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={agreedToPrivacy}
+                  onChange={(e) => setAgreedToPrivacy(e.target.checked)}
+                  required
+                  className="w-4 h-4 rounded border-gray-300"
+                  disabled={formStatus.type === "loading"}
+                />
+                <span>
+                  I consent to the processing of my personal data for communication and
+                  project-related purposes, in accordance with CodSphere’s Privacy Policy. Your
+                  information is securely stored, never shared with third parties, and handled under
+                  strict data-protection standards.
+                </span>
+              </label>
+            </div>
 
-              {/* Submit button */}
+            {/* Submit button */}
+            <div className="flex justify-center">
               <button
                 type="submit"
                 disabled={formStatus.type === "loading"}
-                className="w-fit rounded-full bg-gradient-to-r from-[#33FCFE] to-[#010B66] text-white text-[15px] lg:text-[18px] p-[3px] cursor-pointer disabled:from-gray-500 disabled:to-[#010B66] disabled:cursor-not-allowed"
+                className="w-fit rounded-full bg-linear-to-r from-[#33FCFE] to-[#010B66] text-white text-[15px] lg:text-[18px] p-[3px] cursor-pointer disabled:from-gray-500 disabled:to-[#010B66] disabled:cursor-not-allowed"
               >
                 <div
                   className={cn(
@@ -441,10 +441,10 @@ export const ContactForm = () => {
                     </>
                   ) : (
                     <>
-                      Get a solution
                       <div className="bg-white text-black rounded-full p-0.5">
                         <ArrowRight />
                       </div>
+                      Connect Now
                     </>
                   )}
                 </div>

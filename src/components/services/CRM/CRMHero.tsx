@@ -9,7 +9,7 @@ export default function CRMHero() {
         style={{ backgroundImage: `url(${services_crm_banner_bg.src})` }}
       >
         {/* Black overlay */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/60" />
 
         <div className="absolute inset-0 flex items-center">
           <div className="container-wrapper">

@@ -4,13 +4,13 @@ export default function CRMHero() {
     <section className="relative w-full h-[250px] overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: "url('/images/crm-hero-bg.jpg')",
           }}
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Content */}

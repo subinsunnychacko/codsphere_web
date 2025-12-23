@@ -3,6 +3,8 @@
 
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useState, useRef } from "react";
 
 type FormStatus = {
@@ -11,6 +13,7 @@ type FormStatus = {
 };
 
 export default function ContactCTA() {
+  const pathname = usePathname();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -172,9 +175,9 @@ export default function ContactCTA() {
     <section className="container-wrapper py-more">
       {/* Heading */}
       <div className="text-center mb-10">
-        <p className="font-damion text-[30px] sm:text-[35px] text-[#D3D3D3]">
+        {/* <p className="font-damion text-[30px] sm:text-[35px] text-[#D3D3D3]">
           We are here to help you
-        </p>
+        </p> */}
         <h2 className="text-[25px] sm:text-[30px] lg:text-[40px] font-semibold">
           Ready to start? Contact us today.
         </h2>
@@ -310,86 +313,91 @@ export default function ContactCTA() {
           />
 
           {/* Bottom section */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-between item-start sm:items-end">
-            <div className="flex flex-col gap-3">
-              {/* Attach file or show selected file */}
-              {selectedFile ? (
-                <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-lg">
-                  <svg
-                    className="w-5 h-5 text-green-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+          <div className="flex flex-col gap-3">
+            {/* Attach file or show selected file */}
+            {selectedFile ? (
+              <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-lg">
+                <svg
+                  className="w-5 h-5 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span className="text-[14px] text-gray-700 max-w-[200px] truncate">
+                  {selectedFile.name}
+                </span>
+                <button
+                  type="button"
+                  onClick={removeFile}
+                  className="ml-2 text-red-500 hover:text-red-700"
+                  disabled={formStatus.type === "loading"}
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      d="M6 18L18 6M6 6l12 12"
                     />
                   </svg>
-                  <span className="text-[14px] text-gray-700 max-w-[200px] truncate">
-                    {selectedFile.name}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={removeFile}
-                    className="ml-2 text-red-500 hover:text-red-700"
-                    disabled={formStatus.type === "loading"}
-                  >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              ) : (
-                <button
-                  type="button"
-                  onClick={triggerFileInput}
-                  className="flex items-center gap-2 text-black hover:text-black/60 text-[20px] hover:opacity-70 transition-colors"
-                  disabled={formStatus.type === "loading"}
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
-                    />
-                  </svg>
-                  <span>Attach file</span>
                 </button>
-              )}
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={triggerFileInput}
+                className="flex items-center gap-2 text-black hover:text-black/60 text-[20px] hover:opacity-70 transition-colors"
+                disabled={formStatus.type === "loading"}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
+                  />
+                </svg>
+                <span>Attach file</span>
+              </button>
+            )}
 
-              {/* Privacy checkbox */}
-              <label className="flex items-start gap-2 text-[20px] text-black cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={agreedToPrivacy}
-                  onChange={(e) => setAgreedToPrivacy(e.target.checked)}
-                  required
-                  className="w-4 h-4 rounded border-gray-300 mt-[0.45rem]"
-                  disabled={formStatus.type === "loading"}
-                />
-                <span>I agree to personal data processing</span>
-              </label>
-            </div>
+            {/* Privacy checkbox */}
+            <label className="flex items-start gap-2 text-sm text-black cursor-pointer">
+              <input
+                type="checkbox"
+                checked={agreedToPrivacy}
+                onChange={(e) => setAgreedToPrivacy(e.target.checked)}
+                required
+                className="w-4 h-4 rounded border-gray-300 mt-[0.45rem]"
+                disabled={formStatus.type === "loading"}
+              />
+              <span>
+                I consent to the processing of my personal data for communication and
+                project-related purposes, in accordance with CodSphere’s Privacy Policy. Your
+                information is securely stored, never shared with third parties, and handled under
+                strict data-protection standards.
+              </span>
+            </label>
+          </div>
 
-            {/* Submit button */}
+          {/* Submit button */}
+          <div className="flex justify-center gap-4">
             <button
               type="submit"
               disabled={formStatus.type === "loading"}
-              className="w-fit rounded-full bg-gradient-to-r from-[#33FCFE] to-[#010B66] text-white text-[15px] lg:text-[18px] p-[3px] cursor-pointer disabled:from-gray-500 disabled:to-[#010B66] disabled:cursor-not-allowed"
+              className="w-fit rounded-full bg-linear-to-r from-[#33FCFE] to-[#010B66] text-white text-[15px] lg:text-[18px] p-[3px] cursor-pointer disabled:from-gray-500 disabled:to-[#010B66] disabled:cursor-not-allowed"
             >
               <div
                 className={cn(
                   "flex items-center gap-3 rounded-full px-4 py-3 bg-black",
-                  formStatus.type === "loading" ? "bg-gray-400" : "bg-black  hover:bg-gray-700",
+                  "bg-linear-to-l from-[#33FCFE] to-[#010b6698]  hover:bg-gray-700",
                 )}
               >
                 {formStatus.type === "loading" ? (
@@ -418,14 +426,21 @@ export default function ContactCTA() {
                   </>
                 ) : (
                   <>
-                    Get a solution
                     <div className="bg-white text-black rounded-full p-0.5">
                       <ArrowRight />
                     </div>
+                    Connect Now
                   </>
                 )}
               </div>
             </button>
+            {pathname === "/" ? (
+              <Link href="/start-free-trial">
+                <button className="w-full md:w-auto h-full cursor-pointer rounded-full border-3  border-black text-[15px] lg:text-[18px] gap-3 px-5 py-3">
+                  Start your free trial
+                </button>
+              </Link>
+            ) : null}
           </div>
         </form>
       </div>

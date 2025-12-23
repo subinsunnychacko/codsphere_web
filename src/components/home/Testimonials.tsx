@@ -53,13 +53,13 @@ export default function Voices() {
       <div className="container-wrapper pt-more pb-less">
         {/* headings */}
         <div className="text-center w-5/5 lg:w-4/5 xl:w-3/5 mx-auto pb-6 md:pb-12">
-          <p className="font-damion text-[30px] sm:text-[35px] text-[#D3D3D3]">Voices</p>
+          {/* <p className="font-damion text-[30px] sm:text-[35px] text-[#D3D3D3]">Voices</p> */}
           <h2 className="text-[25px] sm:text-[30px] lg:text-[40px] font-semibold">
-            Trusted by thousands of forward thinkers across the globe
+            Trusted by 100+ teams to automate workflows and reduce reporting time by 50%.
           </h2>
           <p className="mt-2 text-[20px] font-light">
-            We've received endless love and recognition from founders and entrepreneurs who've
-            entrusted us with their most precious thoughts and ideas.
+            From early-stage startups to global enterprises, our clients share one thing in common —
+            a vision to build smarter with CodSphere.
           </p>
         </div>
         {/* Grid Layout - Responsive */}

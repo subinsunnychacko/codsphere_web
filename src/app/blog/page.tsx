@@ -4,6 +4,7 @@ import { BlogGrid } from "@/components/blog/BlogGrid";
 import { BlogSidebar } from "@/components/blog/BlogSidebar";
 import ContactCTA from "@/components/ContactCTA";
 import { formatMetaTitle } from "@/lib/format-meta-title";
+// import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: formatMetaTitle("Blog", "Industry Insights & Tech Trends"),
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-white">
+      {/* <Navbar /> */}
       <BlogHero />
       <div className="container-wrapper pt-more">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-[30px]">

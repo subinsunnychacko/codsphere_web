@@ -8,6 +8,7 @@ import blog_banner_bg from "@/assets/images/banners/blog-banner-bg.jpg";
 import ContactCTA from "@/components/ContactCTA";
 import type { Metadata } from "next";
 import { formatMetaTitle } from "@/lib/format-meta-title";
+// import Navbar from "@/components/Navbar";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -90,6 +91,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* <Navbar /> */}
       <div
         className="relative h-[120px] sm:h-[150px] lg:h-[250px] w-full bg-cover bg-center"
         style={{ backgroundImage: `url(${blog_banner_bg.src})` }}

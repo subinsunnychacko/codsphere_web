@@ -8,7 +8,7 @@ export default function WebMobileHero() {
         style={{ backgroundImage: `url(${services_web_and_mobile_banner_bg.src})` }}
       >
         {/* Black overlay */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/60" />
 
         {/* Title with responsive container */}
         <div className="absolute inset-0 flex items-center">

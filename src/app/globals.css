@@ -138,7 +138,7 @@
 @layer utilities {
   /* container with equal padding at left and right */
   .container-wrapper {
-    @apply container mx-auto px-[20px] sm:px-[30px] lg:px-[90px];
+    @apply container mx-auto px-5 sm:px-[30px] lg:px-[90px];
   }
   /* sections verticle padding */
   .pt-less {
@@ -161,7 +161,11 @@
   }
   /* dotted grid overlay for darker sections */
   .bg-dots {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(225, 225, 225, 0.2) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .bg-dots-for-white {
+    background-image: radial-gradient(rgba(225, 225, 225, 0.8) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 
@@ -392,4 +396,19 @@
       display: flex !important;
     }
   }
+}
+
+/* Hide scrollbar for Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE / old Edge */
+body {
+  -ms-overflow-style: none;
 }

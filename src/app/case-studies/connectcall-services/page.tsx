@@ -5,6 +5,7 @@ import ContactCTA from "@/components/ContactCTA";
 import { formatMetaTitle } from "@/lib/format-meta-title";
 import type { Metadata } from "next";
 import case_studies_banner_bg from "@/assets/images/banners/case-studies-banner-bg.jpg";
+// import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: formatMetaTitle("ConnectCall Services"),
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 export default function ConnectCallServicesPage() {
   return (
     <div className="min-h-screen bg-white">
+      {/* <Navbar /> */}
       {/* Header section */}
       <CaseStudyDetailHeader
         title="ConnectCall Services"

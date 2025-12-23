@@ -8,7 +8,7 @@ export default function CaseStudiesHero() {
         style={{ backgroundImage: `url(${case_studies_banner_bg.src})` }}
       >
         {/* Black overlay */}
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/70" />
 
         <div className="h-full flex items-end pb-6">
           <div className="absolute inset-0 flex items-center">

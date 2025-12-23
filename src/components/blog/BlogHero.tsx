@@ -8,7 +8,7 @@ export function BlogHero() {
         style={{ backgroundImage: `url(${blog_banner_bg.src})` }}
       >
         {/* Black overlay */}
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/80" />
 
         <div className="h-full flex items-end pb-6">
           <div className="absolute inset-0 flex items-center">

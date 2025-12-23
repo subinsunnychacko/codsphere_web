@@ -8,7 +8,7 @@ export default function DigitalMarketingHero() {
         style={{ backgroundImage: `url(${services_digital_marketing_banner_bg.src})` }}
       >
         {/* Black overlay */}
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/70" />
 
         <div className="absolute inset-0 flex items-center">
           <div className="container-wrapper">

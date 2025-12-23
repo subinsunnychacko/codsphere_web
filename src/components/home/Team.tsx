@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import pS from "@/assets/images/about-us/p (1).avif"
 
 type Member = {
   name: string;
@@ -48,7 +49,7 @@ export default function Team() {
     <section className="">
       <div className="container-wrapper pt-less pb-more">
         {/* headings */}
-        <div className="text-center w-5/5 lg:w-4/5 xl:w-3/5 mx-auto pb-4 md:pb-12">
+        <div className="text-center w-5/5 lg:w-4/5 mx-auto pb-4 md:pb-12">
           <p className="font-damion text-[30px] sm:text-[35px] text-[#D3D3D3]">Experts Team</p>
           <h2 className="text-[25px] sm:text-[30px] lg:text-[40px] font-semibold">
             Team Perfection At It's Finest
