@@ -10,29 +10,6 @@ import sortifyImage from "@/assets/images/case-studies/sortify-case-study.png"
 export default function InActionSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const stats = [
-    {
-      icon: "/icons/cpu.svg",
-      value: "100%",
-      label: "Automation",
-    },
-    {
-      icon: "/icons/chart-bar.svg",
-      value: "+85%",
-      label: "Transparency",
-    },
-    {
-      icon: "/icons/users.svg",
-      value: "25K+",
-      label: "Concurrent Users",
-    },
-    {
-      icon: "/icons/rocket.svg",
-      value: "2x",
-      label: "Faster Expansion",
-    },
-  ];
-
   const caseStudies = [
     {
       id: 1,
@@ -42,19 +19,34 @@ export default function InActionSection() {
         "Voltvera India transformed from manual, error-prone MLM operations to a fully automated, scalable ecosystem, built on CodeSphere's CRM + ERP suite.",
       video: "/videos/hero-video.mp4",
       image: voltveraImage,
-      hrefNav: "/case-studies/voltvera"
+      hrefNav: "/case-studies/voltvera",
+      stats: [
+        { icon: "/icons/cpu.svg", value: "100%", label: "Automation" },
+        { icon: "/icons/chart-bar.svg", value: "+85%", label: "Transparency" },
+        { icon: "/icons/users.svg", value: "25K+", label: "Concurrent Users" },
+        { icon: "/icons/rocket.svg", value: "2x", label: "Faster Expansion" },
+      ],
+      fd: "Proven Impact with CodSphere’s Smart MLM Engine"
     },
     {
       id: 2,
       company: "Sortify Technologies Inc.",
       title: "From Paper Logs To Cloud Intelligence",
+      fd: "Making Mailrooms Smarter, Not Busier",
       description:
-        "Voltvera India transformed from manual, error-prone MLM operations to a fully automated, scalable ecosystem, built on CodeSphere's CRM + ERP suite.",
+        "Sortify moved from manual warehouse logs to real-time cloud analytics powered by CodeSphere.",
       video: "/videos/hero-video.mp4",
       image: sortifyImage,
-      hrefNav: "/case-studies/sortify"
+      hrefNav: "/case-studies/sortify",
+      stats: [
+        { icon: "/icons/timer.svg", value: "70% Faster", label: "Processing" },
+        { icon: "/icons/message.svg", value: "80% Fewer", label: "Inquiry Calls" },
+        { icon: "/icons/tick.svg", value: "99% Tracking", label: "Accuracy" },
+        { icon: "/icons/cpu.svg", value: "60% Productivity", label: "Boost" },
+      ],
     },
   ];
+
 
   const study = caseStudies[currentSlide];
 
@@ -79,7 +71,8 @@ export default function InActionSection() {
         <div className="relative flex justify-center">
           <div className="w-full sm:w-4/6">
             <div className="rounded-xl p-0.5 bg-linear-to-r from-[#33FCFE] to-[#010B66]">
-              <div className="rounded-[11px] bg-black p-0 overflow-hidden">
+              {/* <div className="rounded-[11px] bg-black p-0 overflow-hidden"> */}
+              <div className="rounded-[11px] bg-black overflow-hidden h-[720px] sm:h-[760px] lg:h-[800px] flex flex-col">
                 {/* Showcase Image Container */}
                 <div className="relative w-full aspect-video bg-slate-900 overflow-hidden group">
                   {/* <video autoPlay loop muted playsInline className="w-full h-full object-cover">
@@ -98,7 +91,7 @@ export default function InActionSection() {
 
                 <div className="p-8 sm:p-10">
                   <div className="grid grid-cols-4 gap-4 py-8">
-                    {stats.map((stat, index) => {
+                    {study.stats.map((stat, index) => {
                       const Icon = stat.icon;
                       return (
                         <div
@@ -116,7 +109,7 @@ export default function InActionSection() {
                           </div>
                           <div>
                             <p className="font-bold text-white text-lg">{stat.value}</p>
-                            <p className="text-md text-white">{stat.label}</p>
+                            <p className="font-bold text-white text-lg">{stat.label}</p>
                           </div>
                         </div>
                       );
@@ -125,8 +118,8 @@ export default function InActionSection() {
 
                   {/* Case Study Content */}
                   <div className="flex flex-col items-center text-center">
-                    <p className="mb-4 text-white font-semibold text-base">
-                      Proven Impact with CodeSphere's Smart MLM Engine
+                    <p className="mb-4 text-white font-semibold text-3xl">
+                      {study.fd}
                     </p>
                     <p className="text-gray-300 text-sm leading-relaxed mb-8">
                       {study.description}
