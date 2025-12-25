@@ -7,6 +7,8 @@ import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import Footer from "@/components/Footer";
 import ContactUsPopupBtn from "@/components/ContactUsPopupBtn";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Navbar2 from "@/components/Navbar2";
 import Script from "next/script";
 
@@ -131,6 +133,18 @@ export default function RootLayout({
       <body
         className={`${sequelSans.variable} ${damion.variable} ${sequelSans.className} antialiased overflow-x-hidden`}
       >
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
         <GoogleAnalytics />
         <Script
           src="https://site-flow-ai--spathak6.replit.app/widget.js"
