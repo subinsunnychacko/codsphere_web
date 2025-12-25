@@ -65,7 +65,7 @@ export default function WalkThroughSection2() {
           </p>
           <button className="rounded-full bg-linear-to-r from-[#33FCFE] to-[#010B66] text-white text-[15px] lg:text-[18px] p-[3px]">
              <a
-              href="/brochures/Welcome-to-Codsphere (1).pdf"
+              href="/brochures/Welcome-to-Codsphere.pdf"
               download
               className="inline-block"
             >

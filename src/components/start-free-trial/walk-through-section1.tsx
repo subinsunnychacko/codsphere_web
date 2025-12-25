@@ -21,7 +21,7 @@ export default function WalkThroughSection1() {
 
         <div className="mb-12 flex justify-center relative h-124 rounded-xl overflow-hidden">
           <Image
-            src="/images/home/work-samples/work-sample-11.png"
+            src="/images/home/work-samples/work-sample-13.png"
             alt="How Codsphere works"
             fill
             priority
