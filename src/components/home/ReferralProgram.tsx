@@ -147,7 +147,7 @@ export default function ReferralProgramSection() {
         </div>
 
         {/* CTA Button */}
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
           <button className="w-full md:w-auto cursor-pointer rounded-full bg-linear-to-r from-[#33FCFE] to-[#010B66] text-white text-[15px] lg:text-[18px] p-[3px]">
             <div className="flex justify-center items-center gap-3 rounded-full px-5 py-3 bg-linear-to-l from-[#33FCFE] to-[#010b6698]">
               <div className="bg-linear-to-t from-[#33FCFE] to-[#010B66] text-white rounded-full p-0.5">
@@ -156,7 +156,21 @@ export default function ReferralProgramSection() {
               More details
             </div>
           </button>
-        </div>
+        </div> */}
+        <div className="flex justify-center">
+        <a
+          href="/brochures/codsphere-referal-program.pdf"
+          download
+          className="w-full md:w-auto cursor-pointer rounded-full bg-linear-to-r from-[#33FCFE] to-[#010B66] text-white text-[15px] lg:text-[18px] p-[3px]"
+        >
+          <div className="flex justify-center items-center gap-3 rounded-full px-5 py-3 bg-linear-to-l from-[#33FCFE] to-[#010b6698]">
+            <div className="bg-linear-to-t from-[#33FCFE] to-[#010B66] text-white rounded-full p-0.5">
+              <ArrowRight />
+            </div>
+            More details
+          </div>
+        </a>
+      </div>
       </div>
     </section>
   );

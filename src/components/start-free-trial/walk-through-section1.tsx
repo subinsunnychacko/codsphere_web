@@ -1,24 +1,8 @@
-"use client";
 import { ArrowRight, PauseIcon, PlayIcon } from "lucide-react";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import Image from "next/image";
 
 export default function WalkThroughSection1() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-
-  const toggleVideoPlay = () => {
-    if (!videoRef.current) return;
-
-    if (videoRef.current.paused) {
-      videoRef.current.play();
-      setIsVideoPlaying(true);
-    } else {
-      videoRef.current.pause();
-      setIsVideoPlaying(false);
-    }
-  };
-
   return (
     <section className="bg-black bg-dots text-white relative">
       <div className="relative z-10 container-wrapper py-more">
@@ -35,29 +19,14 @@ export default function WalkThroughSection1() {
           </p>
         </div>
 
-        {/* Video section */}
         <div className="mb-12 flex justify-center relative h-124 rounded-xl overflow-hidden">
-          <button
-            className="absolute left-8 bottom-8 z-10 flex items-center justify-center w-16 h-16 rounded-full bg-white border-2 border-black cursor-pointer"
-            aria-label="Play video"
-            onClick={toggleVideoPlay}
-          >
-            {!isVideoPlaying ? (
-              <PlayIcon size={28} strokeWidth={2} className="font-bold text-black" />
-            ) : (
-              <PauseIcon size={28} strokeWidth={2} className="font-bold text-black" />
-            )}
-          </button>
-          <video
-            ref={videoRef}
-            loop
-            muted
-            playsInline
-            className="absolute top-0 left-0 w-full h-full object-cover"
-            poster="/images/home/work-samples/work-sample-2.jpg"
-          >
-            <source src="/videos/hero-video.mp4" type="video/mp4" />
-          </video>
+          <Image
+            src="/images/home/work-samples/work-sample-11.png"
+            alt="How Codsphere works"
+            fill
+            priority
+            className="object-cover"
+          />
         </div>
 
         {/* Steps */}

@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 const data = [
   {
     q: "Do you only serve clients in Canada?",
-    a: "No — we&apos;re proud to be based in Canada but work with startups and enterprises across the US, UK, and other global regions.",
+    a: "No — we’re proud to be based in Canada but work with startups and enterprises across the US, UK, and other global regions.",
   },
   {
     q: "What happens after launch?",

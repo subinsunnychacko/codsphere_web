@@ -20,7 +20,7 @@ const items = [
   {
     title: "Frontend:",
     // subtitle: "",
-    text: "React, Vue.js, HTML5, Tailwind",
+    text: "Next JS, React, Vue.js, HTML5, Tailwind",
     icon: Monitor,
     iconBg: "#F5B9FF",
   },

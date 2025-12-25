@@ -64,12 +64,18 @@ export default function WalkThroughSection2() {
             Analytics.
           </p>
           <button className="rounded-full bg-linear-to-r from-[#33FCFE] to-[#010B66] text-white text-[15px] lg:text-[18px] p-[3px]">
-            <div className="flex justify-center items-center gap-3 rounded-full px-4 py-3 bg-black hover:bg-gray-800">
-              <div className="bg-linear-to-t from-[#33FCFE] to-[#010B66] text-white rounded-full p-0.5">
-                <ArrowDown />
+             <a
+              href="/brochures/Welcome-to-Codsphere (1).pdf"
+              download
+              className="inline-block"
+            >
+              <div className="flex justify-center items-center gap-3 rounded-full px-4 py-3 bg-black hover:bg-gray-800">
+                <div className="bg-linear-to-t from-[#33FCFE] to-[#010B66] text-white rounded-full p-0.5">
+                  <ArrowDown />
+                </div>
+                Download Brochure
               </div>
-              Download Brochure
-            </div>
+            </a>
           </button>
         </div>
       </div>

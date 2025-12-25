@@ -14,7 +14,7 @@ export default function PricingSection() {
       featuresHeading: "Core Features:",
       features: ["Contact Management", "Basic Analytics", "Email Integration", "Task Management"],
       buttonText: "Start Your 14-Day Free Trial",
-      buttonUrl: "",
+      buttonUrl: "/contact",
     },
     {
       id: "professional",
@@ -31,7 +31,7 @@ export default function PricingSection() {
         "Customizable Dashboards",
       ],
       buttonText: "Upgrade & Automate",
-      buttonUrl: "",
+      buttonUrl: "/contact",
     },
     {
       id: "enterprise",
