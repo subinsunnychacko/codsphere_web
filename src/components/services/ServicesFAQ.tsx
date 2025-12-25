@@ -68,13 +68,13 @@ export default function ServicesFAQ() {
                   <div
                     className={`p-6 md:p-8 lg:p-[30px] pr-[70px] md:pr-[80px] ${!isOpen ? "min-h-[120px] md:min-h-[143px] flex items-center" : ""}`}
                   >
-                    <h5 className="text-[18px] md:text-[20px] lg:text-[22px] leading-[22px] md:leading-[24px] lg:leading-[26px] font-[415] font-sequel text-black pr-2">
+                    <h5 className="text-[20px] md:text-[20px] lg:text-[22px] leading-[22px] md:leading-[24px] lg:leading-[26px] font-[415] font-sequel text-black pr-2">
                       {item.q}
                     </h5>
 
                     {/* Answer - only visible when open */}
                     {isOpen && (
-                      <p className="mt-4 md:mt-5 lg:mt-[20px] text-[14px] md:text-[15px] lg:text-[16px] leading-[18px] md:leading-[19px] font-[405] font-sequel text-black animate-fadeIn">
+                      <p className="mt-4 md:mt-5 lg:mt-[20px] text-[14px] md:text-[15px] lg:text-[16px] leading-[18px] md:leading-[19px] font-[400] font-sequel text-black animate-fadeIn">
                         {item.a}
                       </p>
                     )}

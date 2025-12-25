@@ -50,7 +50,7 @@ export default function InActionSection() {
   const study = caseStudies[currentSlide];
 
   return (
-    <section className="relative bg-black">
+    <section id="in-action" className="relative bg-black">
       <div className="container-wrapper pt-12 pb-20 sm:pt-16 sm:pb-28">
         <div className="text-center mx-auto pb-6 sm:pb-12 text-white max-w-4xl">
           <p className="font-damion text-2xl sm:text-3xl text-[#828282]">Our Ecosystem in Action</p>

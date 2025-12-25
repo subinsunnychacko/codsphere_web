@@ -36,7 +36,7 @@ export default function HeroSection() {
                 </div>
               </button>
             </Link>
-            <Link href="/case-studies">
+            <Link href="#in-action">
               <button className="w-full cursor-pointer rounded-full border-2 border-white lg:text-[18px] flex justify-center items-center gap-3 px-5 py-3 hover:bg-white hover:text-black">
                 See What We've Built
               </button>

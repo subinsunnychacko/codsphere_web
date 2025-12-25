@@ -10,7 +10,7 @@ export default function CaseStudyDetailHeader({
   return (
     <header className="relative">
       <div
-        className="relative h-[120px] sm:h-[150px] lg:h-[250px] w-full bg-cover bg-center"
+        className="relative w-full min-h-[120px] sm:min-h-[150px] lg:min-h-[250px] bg-cover bg-center"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         {/* Black overlay */}
@@ -19,7 +19,7 @@ export default function CaseStudyDetailHeader({
         <div className="h-full flex items-end pb-6">
           <div className="absolute inset-0 flex items-center">
             <div className="container-wrapper">
-              <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold drop-shadow-lg">
+              <h1 className="text-white text-xl sm:text-2xl md:text-4xl lg:text-5xl font-semibold drop-shadow-lg">
                 {title}
               </h1>
             </div>
