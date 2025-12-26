@@ -78,13 +78,13 @@ const testimonials: Testimonial[] = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="container-wrapper pt-more pb-less bg-white overflow-hidden">
-      <div className="text-center w-5/5 lg:w-4/5 mx-auto pb-4 md:pb-12">
+    <section className="container-wrapper pt-12 lg:pt-16 xl:pt-20 pb-8 lg:pb-10 bg-white overflow-hidden">
+      <div className="text-center max-w-5xl mx-auto pb-4 md:pb-10">
         {/* <p className="font-damion text-[30px] sm:text-[35px] text-[#828282]"></p> */}
         <h2 className="text-[25px] sm:text-[30px] lg:text-[40px] font-semibold">
           Trusted by 100+ teams to automate workflows and reduce reporting time by 50%
         </h2>
-        <p className="mt-2 text-[20px] font-light">
+        <p className="mt-2 text-[18px] lg:text-[20px] font-light leading-relaxed">
           From early-stage startups to global enterprises, our clients share one thing in common — a
           vision to build smarter with CodSphere.
         </p>

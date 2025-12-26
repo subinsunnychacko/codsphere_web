@@ -48,7 +48,7 @@ export default function ReferralProgramSection() {
 
   return (
     <section className="w-full bg-linear-to-b from-cyan-100 to-cyan-50">
-      <div className="container-wrapper py-more">
+      <div className="container-wrapper py-12 lg:py-16 xl:py-20">
         {/* headings */}
         <div className="text-center w-5/5 lg:w-4/5 mx-auto pb-4">
           <p className="font-damion text-[30px] sm:text-[35px] text-[#a8a8a8]">
@@ -57,7 +57,7 @@ export default function ReferralProgramSection() {
           <h2 className="text-[25px] sm:text-[30px] lg:text-[40px] font-semibold">
             Grow With CodSphere - Earn as You Refer
           </h2>
-          <p className="mt-2 text-[20px] font-light">
+          <p className="mt-2 text-[18px] lg:text-[20px] font-light max-w-4xl mx-auto">
             Turn your network into lifetime earnings. Earn commissions by connecting businesses that
             need CRM, ERP, or automation solutions — zero investment, all reward.
           </p>
@@ -73,13 +73,13 @@ export default function ReferralProgramSection() {
         </div>
 
         {/* Desktop View - Show all steps */}
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="hidden md:grid grid-cols-4 gap-6 xl:gap-8 mb-10">
           {steps.map((step, index) => {
             return (
-              <div key={index} className="relative flex flex-col items-center gap-2">
+              <div key={index} className="relative flex flex-col items-center gap-1.5">
                 {/* Line connector for desktop */}
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute w-full h-1 bg-gray-400 top-[70px] left-2/4 right-1/4"></div>
+                  <div className="hidden md:block absolute w-full h-1 bg-gray-400 top-[64px] left-2/4 right-1/4"></div>
                 )}
 
                 <p className="text-md font-bold text-gray-600">Step {step.id}</p>
@@ -158,19 +158,19 @@ export default function ReferralProgramSection() {
           </button>
         </div> */}
         <div className="flex justify-center">
-        <a
-          href="/brochures/codsphere-referal-program.pdf"
-          download
-          className="w-full md:w-auto cursor-pointer rounded-full bg-linear-to-r from-[#33FCFE] to-[#010B66] text-white text-[15px] lg:text-[18px] p-[3px]"
-        >
-          <div className="flex justify-center items-center gap-3 rounded-full px-5 py-3 bg-linear-to-l from-[#33FCFE] to-[#010b6698]">
-            <div className="bg-linear-to-t from-[#33FCFE] to-[#010B66] text-white rounded-full p-0.5">
-              <ArrowRight />
+          <a
+            href="/brochures/codsphere-referal-program.pdf"
+            download
+            className="w-full md:w-auto cursor-pointer rounded-full bg-linear-to-r from-[#33FCFE] to-[#010B66] text-white text-[15px] lg:text-[18px] p-[3px]"
+          >
+            <div className="flex justify-center items-center gap-3 rounded-full px-5 py-3 bg-linear-to-l from-[#33FCFE] to-[#010b6698]">
+              <div className="bg-linear-to-t from-[#33FCFE] to-[#010B66] text-white rounded-full p-0.5">
+                <ArrowRight />
+              </div>
+              More details
             </div>
-            More details
-          </div>
-        </a>
-      </div>
+          </a>
+        </div>
       </div>
     </section>
   );

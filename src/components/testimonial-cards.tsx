@@ -33,7 +33,7 @@ export default function TestimonialCards({ testimonials }: { testimonials: Testi
         setScrollDirection("left");
       }
 
-      const scrollAmount = 4;
+      const scrollAmount = window.innerWidth >= 1280 ? 2 : 4;
       if (scrollDirection === "left") {
         container.scrollLeft += scrollAmount;
       } else {
@@ -54,7 +54,7 @@ export default function TestimonialCards({ testimonials }: { testimonials: Testi
       {testimonials.map((testimonial) => (
         <div
           key={testimonial.id}
-          className="shrink-0 w-[350px] bg-white p-6 flex flex-col relative rounded-xl"
+          className="shrink-0 w-[300px] lg:w-[320px] xl:w-[340px] bg-white p-5 lg:p-6 flex flex-col relative rounded-xl"
           style={{
             border: "3px solid transparent",
             backgroundImage:
