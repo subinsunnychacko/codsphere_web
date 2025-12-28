@@ -137,8 +137,16 @@
 /* === Utilities === */
 @layer utilities {
   /* container with equal padding at left and right */
-  .container-wrapper {
+  /* .container-wrapper {
     @apply container mx-auto px-5 sm:px-[30px] lg:px-[90px];
+  } */
+  .container-wrapper {
+    width: 100%;
+    max-width: 1440px; /* or 1320px if you want tighter */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1rem, 4vw, 5.5rem);
+    padding-right: clamp(1rem, 4vw, 5.5rem);
   }
   /* sections verticle padding */
   .pt-less {

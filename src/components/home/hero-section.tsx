@@ -31,11 +31,9 @@ export default function HeroSection() {
       <div
         className="
     relative z-10 container-wrapper
-    min-h-[calc(100vh-72px)]
     flex flex-col-reverse md:flex-row
     justify-center md:justify-between
     items-center
-    pt-8
   "
       >
         {/* LEFT CONTENT */}

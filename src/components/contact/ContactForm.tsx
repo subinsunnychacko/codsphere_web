@@ -412,6 +412,7 @@ export const ContactForm = () => {
                 <div
                   className={cn(
                     "flex items-center gap-3 rounded-full px-4 py-3 bg-black",
+                    "bg-linear-to-l from-[#33FCFE] to-[#010b6698]  hover:bg-gray-700",
                     formStatus.type === "loading" ? "bg-gray-400" : "bg-black  hover:bg-gray-700",
                   )}
                 >
