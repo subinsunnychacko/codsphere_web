@@ -16,7 +16,7 @@ export default function Navbar2() {
   const [forceHamburger, setForceHamburger] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const overlayRoutes = ["/home", "/success-stories"];
+  const overlayRoutes = ["/", "/success-stories"];
   const isOverlayPage = overlayRoutes.includes(pathname);
 
   useEffect(() => {
@@ -91,7 +91,7 @@ export default function Navbar2() {
           className="w-full h-12 sm:h-14 lg:h-[72px] rounded-full flex items-center justify-between px-3 sm:px-5 relative"
         >
           {/* Left side - Logo */}
-          <Link href="/home" aria-label="CodSphere" className="flex items-stretch">
+          <Link href="/" aria-label="CodSphere" className="flex items-stretch">
             <Image
               src={web_page_logo_white}
               alt="CodSphere logo"
@@ -107,10 +107,10 @@ export default function Navbar2() {
               className={`navbar-links-compact items-center gap-0 min-w-0 shrink overflow-hidden ${forceHamburger ? "hidden" : ""}`}
             >
               <Link
-                href="/home"
+                href="/"
                 className={cn(
                   "text-white text-[16px] hover:text-gray-300 transition-colors whitespace-nowrap border-2 border-transparent rounded-full px-3 py-1",
-                  pathname === "/home" && "bg-white text-black! border-white",
+                  pathname === "/" && "bg-white text-black! border-white",
                 )}
               >
                 Home
@@ -167,10 +167,10 @@ export default function Navbar2() {
               className={`navbar-links-full items-center gap-0 min-w-0 shrink overflow-hidden ${forceHamburger ? "hidden" : ""}`}
             >
               <Link
-                href="/home"
+                href="/"
                 className={cn(
                   "text-white text-[18px] hover:text-gray-300 transition-colors whitespace-nowrap border-2 border-transparent rounded-full px-4 py-1.5",
-                  pathname === "/home" && "bg-white text-black! border-white",
+                  pathname === "/" && "bg-white text-black! border-white",
                 )}
               >
                 Home
@@ -280,7 +280,7 @@ export default function Navbar2() {
               style={{ backgroundColor: "#111827" }}
             >
               <Link
-                href="/home"
+                href="/"
                 className="py-3 sm:py-4 border-b border-gray-700 transition-colors hover:bg-gray-800 rounded-none"
                 onClick={toggleMenu}
                 style={{ color: "#ffffff", fontSize: "16px", fontWeight: "normal" }}
