@@ -2,7 +2,7 @@ import Navbar2 from "@/components/Navbar2";
 import HeroSection from "@/components/success-stories/hero-section";
 import InActionSection from "@/components/home/inaction-section";
 import TestimonialsSection from "@/components/success-stories/testimonials-section";
-import ServicesSection from "../../components/success-stories/services-section";
+import ServicesSection from "../../../components/success-stories/services-section";
 import InsightsSection from "@/components/success-stories/insights-section";
 import HighlightSection from "@/components/success-stories/highlight-section";
 import ContactCTA from "@/components/ContactCTA";

@@ -8,10 +8,11 @@ import WorkShowcaseSection from "@/components/home/WorkShowcase";
 import ServicesSection from "@/components/home/services-section";
 import Team from "@/components/home/Team";
 import ContactCTA from "@/components/ContactCTA";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-20 sm:pt-[88px] lg:pt-[104px]">
       <Navbar2 />
       <HeroSection />
       <InActionSection />
@@ -22,6 +23,7 @@ export default function Home() {
       <ServicesSection />
       <Team />
       <ContactCTA />
+      <Footer />
     </div>
   );
 }

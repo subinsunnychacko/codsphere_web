@@ -151,9 +151,7 @@ export default function RootLayout({
           data-widget-id="9ef7ba1c-8356-4adf-af1e-d5dcf4b093e0"
           strategy="afterInteractive"
         />
-        <Navbar2 />
-        <main className="pt-20 sm:pt-[88px] lg:pt-[104px]">{children}</main>
-        <Footer />
+        <main>{children}</main>
         <ContactUsPopupBtn />
       </body>
     </html>
