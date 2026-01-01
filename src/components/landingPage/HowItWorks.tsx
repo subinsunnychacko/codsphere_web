@@ -1,163 +1,121 @@
-"use client";
-
-import { useLayoutEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { Search, Palette, Rocket, DollarSign } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
   {
     icon: Search,
     title: "Choose Your Plan",
-    description: "Pick the features that fit your business needs",
+    description: "Pick the features that fit your business",
   },
   {
     icon: Palette,
     title: "We Build It",
-    description: "Custom design and chatbot setup in 48 hours",
+    description: "Custom design + chatbot setup in 48 hours",
   },
   {
     icon: Rocket,
     title: "Go Live",
-    description: "Your website starts capturing leads instantly",
+    description: "Your website starts capturing leads",
   },
   {
     icon: DollarSign,
     title: "You Earn",
-    description: "More leads, less stress, better growth",
+    description: "More leads, less stress, better business",
   },
 ];
 
 export function HowItWorks() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".hiw-header", {
-        opacity: 0,
-        y: 40,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".hiw-header",
-          start: "top 80%",
-        },
-      });
-
-      gsap.from(".hiw-line", {
-        scaleX: 0,
-        transformOrigin: "left center",
-        duration: 1.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".hiw-steps",
-          start: "top 75%",
-        },
-      });
-
-      gsap.fromTo(
-        ".hiw-card",
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.15,
-          duration: 1,
-          ease: "power3.out",
-          clearProps: "transform",
-          scrollTrigger: {
-            trigger: ".hiw-steps",
-            start: "top 80%",
-          },
-        },
-      );
-
-      gsap.to(".hiw-icon", {
-        y: -6,
-        duration: 2,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
-        stagger: 0.2,
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      id="how-it-works"
-      className="relative py-24 lg:py-32 bg-slate-950 text-white overflow-hidden"
-    >
-      {/* Soft background glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 pointer-events-none" />
+    <section id="how-it-works" className="relative overflow-hidden py-20 bg-[#030617]">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#030617] via-[#020a3a]/30 to-[#030617]" />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-20">
         {/* Header */}
-        <div className="hiw-header text-center mb-20">
-          <p className="text-xs uppercase tracking-[0.3em] text-slate-400 mb-4">How It Works</p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16 text-center"
+        >
+          {/* Section label */}
+          <span
+            className="
+              block
+              font-['Damion']
+              text-[35px]
+              text-[#7da2ff]
+            "
+          >
+            How It Works
+          </span>
 
-          <h2 className="text-4xl md:text-5xl font-semibold leading-tight">
-            Set it up once.
-            <br />
-            <span className="text-cyan-400">Let it work forever.</span>
+          <h2
+            className="
+              mt-2
+              font-poppins
+              text-3xl md:text-4xl
+              font-normal
+              text-white
+            "
+          >
+            Set It Up Once. Let It Work Forever.
           </h2>
-        </div>
+        </motion.div>
 
         {/* Steps */}
-        <div className="hiw-steps relative">
+        <div className="relative">
           {/* Connecting line */}
-          <div className="hiw-line hidden md:block absolute top-[44px] left-[8%] right-[8%] h-px bg-slate-700" />
+          <div className="absolute top-[50px] left-[15%] right-[15%] hidden h-1 md:block bg-white/20" />
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
             {steps.map((step, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="hiw-card relative z-10 text-center
-                rounded-2xl border border-slate-800 bg-slate-900/60
-                px-6 py-10 backdrop-blur-sm
-                shadow-lg shadow-black/20
-                hover:-translate-y-1 hover:shadow-xl transition-all
-                transform-gpu will-change-transform"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15 }}
+                className="relative z-10 text-center"
               >
-                <span className="block text-xs uppercase tracking-widest text-slate-400 mb-4">
+                <span className="mb-2 block text-sm font-medium text-white/60">
                   Step {index + 1}
                 </span>
 
-                <div
-                  className="hiw-icon w-16 h-16 mx-auto mb-6
-                  rounded-xl bg-cyan-500/10
-                  border border-cyan-400/30
-                  flex items-center justify-center"
-                >
-                  <step.icon className="w-7 h-7 text-cyan-400" />
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl border border-white/20 bg-white/10">
+                  <step.icon className="h-8 w-8 text-[#33fcfe]" />
                 </div>
 
-                <h3 className="text-lg font-semibold mb-3">{step.title}</h3>
+                <h3 className="mb-2 font-poppins text-xl font-medium text-white">{step.title}</h3>
 
-                <p className="text-sm text-slate-400 leading-relaxed">{step.description}</p>
-              </div>
+                <p className="text-sm text-white/70">{step.description}</p>
+              </motion.div>
             ))}
           </div>
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center"
+        >
           <a
             href="#pricing"
-            className="inline-flex items-center justify-center
-            rounded-full px-10 py-4
-            bg-cyan-500 text-slate-950
-            font-semibold text-sm tracking-wide
-            hover:bg-cyan-400 transition-colors"
+            className="
+              inline-flex items-center gap-2
+              rounded-lg px-8 py-4
+              font-poppins font-semibold
+              text-white
+              bg-gradient-to-br from-[#010B66] to-[#33FCFE]
+              transition-all duration-300
+              hover:shadow-lg hover:shadow-cyan-400/30
+            "
           >
             Get Started in 48 Hours
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

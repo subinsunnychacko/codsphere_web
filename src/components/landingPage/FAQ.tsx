@@ -1,158 +1,95 @@
-"use client";
-
-import { useLayoutEffect, useRef, useState } from "react";
-import { Plus, Minus } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { cn } from "@/lib/utils";
-
-gsap.registerPlugin(ScrollTrigger);
+import { motion } from "framer-motion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/landingPage/ui/accordion";
 
 const faqs = [
   {
-    q: "Will it sound like a robot?",
-    a: "Nope. We customize tone, phrasing, and flow so it sounds like your business — not AI.",
+    question: "Will it sound like a robot?",
+    answer:
+      "Nope. We customize the tone and responses to match your business personality. It sounds like you, not a machine.",
   },
   {
-    q: "What if a customer asks something it can’t answer?",
-    a: "It captures the lead instantly and alerts you so you can follow up personally.",
+    question: "What if a customer asks something it can't answer?",
+    answer:
+      "It captures their info and alerts you immediately — no lead left behind. You can always follow up personally.",
   },
   {
-    q: "How long does setup take?",
-    a: "Most businesses go live within 48 hours. We handle everything end-to-end.",
+    question: "How long does setup take?",
+    answer: "Most businesses are live within 48 hours. We handle everything.",
   },
   {
-    q: "Do I need technical knowledge?",
-    a: "None. You provide business info — we do the rest.",
+    question: "Do I need to do anything technical?",
+    answer: "Not a thing. We set up, configure, and launch. You just provide your business info.",
   },
   {
-    q: "Can I upgrade later?",
-    a: "Yes. You only pay the difference in setup. No penalties.",
+    question: "Can I upgrade later?",
+    answer: "Absolutely. You only pay the difference in setup fees. No penalties.",
   },
   {
-    q: "Is there a contract?",
-    a: "No contracts. Cancel anytime.",
+    question: "Is there a contract?",
+    answer: "No long-term contracts. Cancel anytime. We earn your business every month.",
   },
 ];
 
 export function FAQ() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState<number | null>(null);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".faq-title",
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "expo.out",
-          scrollTrigger: {
-            trigger: ".faq-title",
-            start: "top 90%",
-            once: true,
-          },
-        },
-      );
-
-      gsap.fromTo(
-        ".faq-card",
-        { y: 30, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          stagger: 0.15,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".faq-grid",
-            start: "top 85%",
-            once: true,
-          },
-        },
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="relative py-28 bg-background overflow-hidden">
-      {/* Ambient glow */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top,rgba(0,200,255,0.08),transparent_60%)]" />
-
-      <div className="relative container mx-auto px-6 lg:px-20">
-        {/* Header */}
-        <div className="faq-title text-center max-w-2xl mx-auto mb-20">
-          <span className="text-cyan text-xs tracking-[0.35em] uppercase font-semibold block mb-4">
-            FAQ
-          </span>
-          <h2 className="text-3xl md:text-5xl font-sequel font-bold tracking-tight text-foreground">
-            Questions, answered clearly.
+    <section className="min-h-[110vh] bg-white py-28 flex items-center">
+      <div className="mx-auto w-full max-w-7xl px-6 lg:px-20">
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-14 text-center"
+        >
+          <h2 className="text-3xl md:text-4xl font-normal text-gray-900">
+            Questions? We've Got Answers.
           </h2>
-        </div>
+        </motion.div>
 
-        {/* FAQ Grid */}
-        <div className="faq-grid max-w-3xl mx-auto space-y-5">
-          {faqs.map((item, i) => {
-            const isOpen = active === i;
-
-            return (
-              <div
-                key={i}
-                className={cn(
-                  "faq-card group relative rounded-2xl border backdrop-blur-xl transition-all duration-500",
-                  isOpen
-                    ? "border-cyan bg-cyan/5 shadow-[0_20px_60px_-30px_rgba(0,200,255,0.4)]"
-                    : "border-border bg-card/60 hover:border-cyan/40",
-                )}
+        {/* Accordion */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto max-w-3xl"
+        >
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqs.map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className="
+                  rounded-xl
+                  border border-gray-200
+                  bg-white
+                  px-6
+                "
               >
-                {/* Accent Line */}
-                <div
-                  className={cn(
-                    "absolute left-0 top-0 h-full w-1 rounded-l-2xl bg-cyan transition-all duration-500",
-                    isOpen ? "opacity-100" : "opacity-0",
-                  )}
-                />
-
-                {/* Trigger */}
-                <button
-                  onClick={() => setActive(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between gap-6 px-6 py-6 text-left"
+                <AccordionTrigger
+                  className="
+                    py-5
+                    text-left
+                    text-base
+                    font-medium
+                    text-gray-900
+                    hover:no-underline
+                  "
                 >
-                  <span className="text-base md:text-lg font-medium text-foreground">{item.q}</span>
+                  {faq.question}
+                </AccordionTrigger>
 
-                  <div
-                    className={cn(
-                      "flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300",
-                      isOpen
-                        ? "bg-cyan text-background"
-                        : "bg-muted text-foreground group-hover:bg-cyan/20",
-                    )}
-                  >
-                    {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-                  </div>
-                </button>
-
-                {/* Content */}
-                <div
-                  className={cn(
-                    "grid transition-all duration-500 ease-in-out",
-                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
-                  )}
-                >
-                  <div className="overflow-hidden">
-                    <p className="px-6 pb-6 text-sm leading-relaxed text-muted-foreground">
-                      {item.a}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                <AccordionContent className="pb-5 text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </motion.div>
       </div>
     </section>
   );

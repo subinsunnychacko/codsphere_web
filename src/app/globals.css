@@ -1,5 +1,15 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* === Optional: Dark selector helper === */
 @custom-variant dark (&:is(.dark *));
@@ -50,6 +60,23 @@
 
   /* Brand */
   --brand-blue: #608bf3;
+
+  --cyan: 180 99% 60%;
+  --dark-blue: 234 98% 21%;
+  --navy: 206 91% 15%;
+  --purple: 238 78% 66%;
+  --teal: 181 68% 78%;
+  --light-blue: 223 87% 68%;
+
+  /* Gradients */
+  --gradient-cta: linear-gradient(135deg, #010b66 0%, #33fcfe 100%);
+  --gradient-hero: linear-gradient(
+    254.52deg,
+    hsl(203 93% 34% / 0.65) -13.85%,
+    hsl(0 0% 0% / 0.65) 98.43%
+  );
+  --gradient-dark: linear-gradient(180deg, hsl(220 60% 3%) 0%, hsl(234 98% 21% / 0.3) 100%);
+  --gradient-stroke: linear-gradient(135deg, #010b66 0%, #33fcfe 100%);
 }
 
 /* Base (light) palette */
@@ -419,4 +446,26 @@ html {
 /* Hide scrollbar for IE / old Edge */
 body {
   -ms-overflow-style: none;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }

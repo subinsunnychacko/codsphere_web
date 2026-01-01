@@ -1,212 +1,130 @@
-"use client";
-
-import { useLayoutEffect, useRef } from "react";
-import Image from "next/image";
-import { Bot, ShieldCheck, Sparkles, Zap } from "lucide-react";
-import gsap from "gsap";
-import BgHero from "@/assets/hero-bg.jpg";
+import { ArrowRight, MessageSquare } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function Hero() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const uiCardRef = useRef<HTMLDivElement>(null);
-  const typeTarget = useRef<HTMLSpanElement>(null);
-  const bgRef = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-
-      // 1. Typing Effect
-      const words = "Revenue";
-      let obj = { prop: 0 };
-      tl.to(obj, {
-        prop: words.length,
-        duration: 0.8,
-        ease: "none",
-        onUpdate: () => {
-          if (typeTarget.current) {
-            typeTarget.current.textContent = words.substring(0, Math.ceil(obj.prop));
-          }
-        },
-      });
-
-      // 2. Content Entrance
-      tl.fromTo(
-        ".hero-content-anim",
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power2.out" },
-        "-=0.4",
-      );
-
-      // 3. UI Card Entrance (Separate from text for smoother mobile flow)
-      tl.fromTo(
-        uiCardRef.current,
-        { scale: 0.9, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1, ease: "expo.out" },
-        "-=0.6",
-      );
-
-      // 4. UI Card Float
-      gsap.to(uiCardRef.current, {
-        y: -15,
-        duration: 4,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-
-      const handleMouseMove = (e: MouseEvent) => {
-        const { clientX, clientY } = e;
-        const xPos = (clientX / window.innerWidth - 0.5) * 20;
-        const yPos = (clientY / window.innerHeight - 0.5) * 20;
-
-        gsap.to(bgRef.current, {
-          x: xPos,
-          y: yPos,
-          duration: 2,
-          ease: "power2.out",
-        });
-      };
-
-      window.addEventListener("mousemove", handleMouseMove);
-      return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section
-      ref={containerRef}
-      className="relative min-h-[100dvh] w-full flex items-center overflow-hidden bg-black pt-28 pb-16 lg:pt-20 lg:pb-10"
-    >
-      {/* --- BACKGROUND LAYER --- */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div ref={bgRef} className="absolute inset-[-5%] w-[110%] h-[110%]">
-          <Image
-            src={BgHero}
-            alt="Hero Background"
-            fill
-            className="object-cover opacity-50"
-            priority
-          />
-        </div>
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[hsl(var(--dark-blue))]">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/hero-landing.mp4" type="video/mp4" />
+        </video>
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
-      <div className="container-wrapper relative z-10 w-full px-6">
-        {/* Changed flex direction: col on mobile (Text first), md:row for desktop */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-10">
-          {/* --- LEFT SIDE (Text Content) --- */}
-          <div className="w-full md:w-6/12 lg:w-5/12 flex flex-col gap-6 text-center md:text-left items-center md:items-start">
-            <div className="hero-content-anim inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[11px] uppercase tracking-[0.2em] font-bold text-cyan-400 backdrop-blur-xl">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-              Intelligence Driven
-            </div>
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-20 pt-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left content */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <span className="inline-block text-[hsl(var(--cyan))] text-sm font-semibold uppercase tracking-[3px] mb-4">
+              AI-Powered Lead Capture
+            </span>
 
-            <h1 className="font-bold leading-[1.1] text-[36px] sm:text-[48px] md:text-[48px] lg:text-[64px] tracking-tight text-white">
-              Turn Visitors Into
-              <br />
-              <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-white to-indigo-400">
-                <span ref={typeTarget}></span>
-                <span className="inline-block w-[3px] h-[0.9em] bg-cyan-400 ml-1 animate-blink align-middle" />
-              </span>
+            <h1 className="text-[36px] md:text-[48px] lg:text-[56px] font-semibold text-white leading-[1.05] mb-6 max-w-[620px]">
+              Your AI Answers Inquiries, Qualifies Leads, and Captures Contacts Automatically
             </h1>
 
-            <p className="hero-content-anim leading-relaxed text-slate-300 text-[16px] lg:text-[18px] max-w-lg font-light">
-              Transform your digital footprint into a high-converting revenue engine with AI
-              tailored to your business workflow.
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 max-w-[520px]">
+              Stop losing leads while you're on the job. CodSphere's AI works 24/7 to engage
+              visitors, qualify prospects, and route them to you ready to close.
             </p>
 
-            <div className="hero-content-anim flex flex-col sm:flex-row w-full sm:w-auto gap-4 pt-4">
-              <button className="group relative w-full sm:px-8 h-[56px] rounded-full bg-cyan-500 text-black font-bold text-[15px] flex items-center justify-center gap-2 hover:bg-white transition-all duration-300 overflow-hidden">
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-shimmer" />
-                Deploy Agent <Sparkles className="w-4 h-4" />
-              </button>
+            <a
+              href="#pricing"
+              className="
+                inline-flex items-center gap-3
+                rounded-lg px-8 py-4 font-semibold text-white
+                bg-[linear-gradient(135deg,#010B66_0%,#33FCFE_100%)]
+                transition-all duration-300
+                hover:shadow-lg hover:shadow-cyan-400/30
+              "
+            >
+              <ArrowRight className="w-5 h-5" />
+              Build Your Site Now
+            </a>
+          </motion.div>
 
-              <button className="w-full sm:px-8 h-[56px] rounded-full border border-white/20 text-white text-[15px] font-medium flex justify-center items-center hover:bg-white/10 transition-all backdrop-blur-sm">
-                View Demo
-              </button>
-            </div>
-          </div>
+          {/* Right chat preview */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="hidden lg:block"
+          >
+            <div className="relative animate-[float_4s_ease-in-out_infinite]">
+              {/* Glow */}
+              <div
+                className="
+    absolute -inset-10 rounded-full
+    bg-[hsl(var(--cyan))]/15 blur-3xl
+    animate-[pulseGlow_3s_ease-in-out_infinite]
+  "
+              />
 
-          {/* --- RIGHT SIDE (Chat UI) --- */}
-          <div className="w-full md:w-5/12 lg:w-1/2 flex justify-center md:justify-end items-center mt-4 md:mt-0">
-            <div ref={uiCardRef} className="relative w-full max-w-[420px]">
-              {/* Glow Effect */}
-              <div className="absolute -inset-4 bg-cyan-500/15 rounded-[40px] blur-3xl" />
-
-              <div className="relative rounded-[32px] border border-white/10 bg-black/40 p-3 backdrop-blur-2xl shadow-2xl overflow-hidden">
-                <div className="rounded-[24px] bg-[#0d0d14]/90 p-6 border border-white/5">
-                  <div className="flex items-center justify-between mb-8">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/20 flex items-center justify-center border border-cyan-500/30">
-                        <Bot className="w-5 h-5 text-cyan-400" />
-                      </div>
-                      <div className="text-left">
-                        <div className="text-sm font-bold text-white tracking-tight">
-                          CodSphere AI
-                        </div>
-                        <div className="text-[10px] text-cyan-500 font-bold uppercase tracking-widest">
-                          Active
-                        </div>
-                      </div>
-                    </div>
-                    <Zap className="w-4 h-4 text-cyan-400 fill-cyan-400/20" />
+              {/* Glass card */}
+              <div
+                className="
+                relative ml-auto max-w-sm p-6
+                rounded-xl border border-white/15
+                bg-white/5 backdrop-blur-xl
+                shadow-lg shadow-black/20
+              "
+              >
+                <div className="flex items-center gap-3 mb-4 pb-4 border-b border-white/10">
+                  <div
+                    className="
+                    w-10 h-10 rounded-full
+                    bg-gradient-to-br
+                    from-[hsl(var(--cyan))]
+                    to-[hsl(var(--dark-blue))]
+                    flex items-center justify-center
+                  "
+                  >
+                    <MessageSquare className="w-5 h-5 text-white" />
                   </div>
 
-                  <div className="space-y-5 mb-8 text-left">
-                    <div className="p-4 rounded-2xl rounded-tl-none bg-white/[0.03] border border-white/5 text-slate-300 text-[13px] leading-relaxed">
-                      I&apos;ve analyzed your traffic patterns. I can increase your lead capture by
-                      40%.
-                    </div>
-                    <div className="flex justify-end">
-                      <div className="p-4 rounded-2xl rounded-tr-none bg-cyan-600 text-black font-semibold text-[13px] shadow-lg shadow-cyan-500/20">
-                        Definitely. Show me how.
-                      </div>
-                    </div>
+                  <div>
+                    <p className="text-white font-medium text-sm">CodSphere Assistant</p>
+                    <p className="text-white/50 text-xs">Online now</p>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="bg-white/10 rounded-2xl rounded-tl-none p-3">
+                    <p className="text-white text-sm">
+                      Hi! 👋 I'm here to help. What service are you looking for today?
+                    </p>
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center">
-                        <ShieldCheck className="w-5 h-5 text-emerald-400" />
-                      </div>
-                      <div className="text-left">
-                        <div className="text-[10px] text-slate-500 uppercase font-bold">Status</div>
-                        <div className="text-sm text-white font-medium">Qualified</div>
-                      </div>
-                    </div>
-                    <div className="text-right font-bold text-white text-sm">$12.5k</div>
+                  <div className="bg-[hsl(var(--cyan))]/20 rounded-2xl rounded-tr-none p-3 ml-8">
+                    <p className="text-white text-sm">
+                      I need an electrician for a home rewiring project
+                    </p>
+                  </div>
+
+                  <div className="bg-white/10 rounded-2xl rounded-tl-none p-3">
+                    <p className="text-white text-sm">
+                      Great! I can help with that. What's your zip code so I can check availability?
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes blink {
-          0%,
-          100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0;
-          }
-        }
-        .animate-blink {
-          animation: blink 1s step-end infinite;
-        }
-        @keyframes shimmer {
-          100% {
-            transform: translateX(100%);
-          }
-        }
-        .group-hover\:animate-shimmer {
-          animation: shimmer 1.5s infinite;
-        }
-      `}</style>
     </section>
   );
 }

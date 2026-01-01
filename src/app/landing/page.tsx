@@ -30,6 +30,7 @@ export default function LandingPage() {
       <Testimonials />
       <FAQ />
       <FinalCTA />
+      <Footer />
     </div>
   );
 }

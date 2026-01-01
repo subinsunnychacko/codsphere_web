@@ -81,12 +81,12 @@ export default function PricingInquiryOverlay({ open, onClose, plan }: Props) {
           ✕
         </button>
 
-        <h1 className="text-[28px] font-bold text-center text-gray-900">
-          Activate Your 14-Day Free Trial
-        </h1>
+        <h1 className="text-[28px] font-bold text-center text-gray-900">{plan?.name} PLAN</h1>
 
         <p className="text-center text-sm text-gray-500 mt-1 mb-7">
-          No charge today. Billing starts only after your trial ends.
+          {plan
+            ? `${plan.price}/month`
+            : "No charge today. Billing starts only after your trial ends."}
         </p>
         <div className="overflow-y-auto pr-1">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">

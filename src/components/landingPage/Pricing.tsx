@@ -1,13 +1,7 @@
-"use client";
-
-import { useLayoutEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { Check } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { cn } from "@/lib/utils";
 import PricingInquiryOverlay from "./PricingInquiryOverlay";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useState } from "react";
 
 const plans = [
   {
@@ -26,7 +20,6 @@ const plans = [
       "Basic analytics",
       "Cancel anytime",
     ],
-    cta: "Start Starter Plan",
     highlighted: false,
   },
   {
@@ -42,7 +35,6 @@ const plans = [
       "Smarter lead qualification",
       "Better first impression for customers",
     ],
-    cta: "Choose AI Standard",
     highlighted: false,
   },
   {
@@ -58,190 +50,138 @@ const plans = [
       "Priority support",
       "Custom integrations available",
     ],
-    cta: "Go AI Pro",
     highlighted: true,
   },
 ];
 
 export function Pricing() {
-  const sectionRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<any>(null);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      // Entrance Animation
-      gsap.fromTo(
-        ".pricing-card",
-        { y: 80, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1.2,
-          stagger: 0.18,
-          ease: "expo.out",
-          scrollTrigger: {
-            trigger: ".pricing-grid",
-            start: "top 80%",
-          },
-        },
-      );
-
-      // Hover Micro-interactions
-      gsap.utils.toArray<HTMLElement>(".pricing-card").forEach((card) => {
-        const tl = gsap.timeline({ paused: true });
-        tl.to(card, {
-          y: -10,
-          scale: 1.02,
-          duration: 0.4,
-          ease: "power3.out",
-        });
-        card.addEventListener("mouseenter", () => tl.play());
-        card.addEventListener("mouseleave", () => tl.reverse());
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <>
-      <section
-        ref={sectionRef}
-        id="pricing"
-        className="relative py-32 bg-background overflow-hidden font-sans"
-      >
-        {/* Ambient background */}
-        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top,rgba(0,200,255,0.08),transparent_60%)]" />
-
-        <div className="relative container-wrapper">
+      <section id="pricing" className="py-20 bg-background">
+        <div className="mx-auto max-w-6xl px-6 lg:px-20">
           {/* Header */}
-          <div className="text-center max-w-2xl mx-auto mb-24">
-            <span className="inline-block text-xs tracking-[0.3em] font-bold text-cyan uppercase mb-5 font-sequel">
-              Pricing
-            </span>
-            <h2 className="text-4xl md:text-6xl tracking-tighter text-foreground mb-6 font-sequel font-bold">
-              Premium pricing.
-              <br />
-              Zero surprises.
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <span className="font-['Damion'] text-[35px] text-muted-foreground/50">Pricing</span>
+
+            <h2 className="mt-2 mb-4 font-heading text-3xl md:text-4xl font-normal text-foreground">
+              Simple Monthly Pricing + One-Time Setup
             </h2>
-            <p className="text-muted-foreground leading-relaxed text-lg">
-              One-time setup. Simple monthly plans. Upgrade anytime — pay only the difference.
+
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              No hidden fees. No surprise charges. Setup covers professional design, chatbot
+              configuration, branding, testing, and launch.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Cards Grid */}
-          <div className="pricing-grid grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+          {/* Cards */}
+          <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
             {plans.map((plan, index) => (
-              <div
-                key={index}
-                className={cn(
-                  "pricing-card relative rounded-[32px] p-8 border backdrop-blur-xl transition-all duration-300 flex flex-col",
-                  plan.highlighted
-                    ? "border-cyan bg-gradient-to-b from-cyan/20 to-card shadow-[0_30px_80px_-30px_rgba(0,200,255,0.3)]"
-                    : "border-border bg-card/70",
-                )}
+              <motion.div
+                key={plan.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group relative rounded-xl p-[7px]"
               >
-                {/* Glow layer */}
-                {plan.highlighted && (
-                  <div className="absolute -inset-px rounded-[32px] bg-gradient-to-br from-cyan/30 via-transparent to-transparent blur-2xl opacity-40 -z-20 pointer-events-none" />
-                )}
+                {/* Gradient border */}
+                <div
+                  className="absolute inset-0 rounded-xl opacity-0 transition-all duration-300 group-hover:opacity-100
+                bg-[linear-gradient(135deg,#010B66_0%,#33FCFE_100%)]
+                shadow-[0_20px_40px_rgba(1,11,102,0.4),0_10px_20px_rgba(51,252,254,0.2)]"
+                />
 
-                {/* Content Wrapper */}
-                <div className="relative z-10 h-full flex flex-col">
-                  {/* Badge */}
+                {/* Card */}
+                <div
+                  className="relative flex h-full flex-col rounded-lg border-2 border-border bg-card p-6
+                transition-all duration-300 group-hover:border-transparent group-hover:bg-black"
+                >
                   {plan.highlighted && (
-                    <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-cyan text-slate-950 text-[10px] tracking-widest font-black px-4 py-1.5 rounded-full whitespace-nowrap z-30 shadow-lg font-sequel">
-                      MOST POPULAR
+                    <div
+                      className="absolute -top-4 right-6 rounded-lg px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-white
+                    bg-[linear-gradient(135deg,#010B66_0%,#33FCFE_100%)]"
+                    >
+                      Most Popular
                     </div>
                   )}
 
-                  <span className="text-xs tracking-[0.2em] font-bold text-cyan uppercase font-sequel">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-foreground group-hover:text-white">
                     {plan.name}
                   </span>
 
-                  {/* Price */}
-                  <div className="mt-6 mb-5 flex items-end gap-2 font-sequel">
-                    <span className="text-5xl font-bold text-foreground">{plan.price}</span>
-                    <span className="text-muted-foreground mb-1 font-medium text-sm">/ month</span>
+                  <div className="mt-4 mb-2">
+                    <span className="font-heading text-5xl font-semibold text-foreground group-hover:text-white">
+                      {plan.price}
+                    </span>
+                    <span className="ml-1 text-lg text-muted-foreground group-hover:text-white/70">
+                      / month
+                    </span>
                   </div>
 
-                  <div className="inline-flex rounded-full border border-border/50 bg-background/40 backdrop-blur-md px-4 py-1.5 text-[11px] font-bold text-muted-foreground mb-6 w-fit font-sequel">
-                    SETUP: {plan.setup}
+                  <div
+                    className="mb-4 inline-block rounded-full bg-muted px-4 py-2 text-sm text-muted-foreground
+                  group-hover:bg-white/10 group-hover:text-white/80"
+                  >
+                    One-Time Setup: {plan.setup}
                   </div>
 
-                  <p className="text-sm italic text-muted-foreground/90 mb-8 min-h-[40px] font-medium leading-relaxed">
+                  <p className="mb-6 text-sm italic text-muted-foreground group-hover:text-white/70">
                     {plan.tagline}
                   </p>
 
-                  {/* Features */}
-                  <ul className="space-y-4 mb-10 flex-grow">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex gap-3 text-sm items-start group">
-                        <Check className="w-5 h-5 text-cyan mt-0.5 flex-shrink-0" />
-                        <span className="text-foreground/80 group-hover:text-foreground transition-colors leading-snug">
-                          {feature}
-                        </span>
+                  <ul className="mb-8 flex-grow space-y-3">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3 text-sm">
+                        <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-foreground group-hover:text-white" />
+                        <span className="text-foreground group-hover:text-white">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
-                  {/* CTA Button */}
                   <button
                     onClick={() => {
                       setSelectedPlan(plan);
                       setOpen(true);
                     }}
-                    className={cn(
-                      "w-full py-4 rounded-full font-bold tracking-widest relative z-30 font-sequel text-xs uppercase transition-all duration-500",
-                      plan.highlighted
-                        ? "bg-cyan text-slate-950 shadow-[0_10px_20px_-5px_rgba(0,255,255,0.4)] hover:shadow-[0_15px_30px_-5px_rgba(0,255,255,0.6)]"
-                        : "border border-foreground/20 text-foreground hover:bg-foreground hover:text-background",
-                    )}
+                    className="mt-auto w-full rounded-lg py-3.5 font-semibold text-white transition-all duration-300
+                  bg-[linear-gradient(135deg,#010B66_0%,#33FCFE_100%)]
+                  hover:shadow-lg hover:shadow-cyan/30"
                   >
-                    {plan.cta}
+                    Build Your Site Now
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* Upgrade Policy */}
-          <div className="max-w-3xl mx-auto mt-24 rounded-3xl border border-cyan/20 bg-muted/20 backdrop-blur-sm p-8 sm:p-10">
-            <h3 className="text-xl font-bold text-foreground mb-6 font-sequel tracking-tight">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mx-auto mt-12 max-w-5xl rounded-r-lg border-l-4 border-foreground bg-muted/50 p-6"
+          >
+            <h3 className="mb-3 font-heading text-lg font-semibold text-foreground">
               Fair, No-Penalty Upgrade Policy
             </h3>
-            <div className="grid sm:grid-cols-2 gap-8 text-sm text-muted-foreground">
-              <div className="space-y-3">
-                <p className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan" /> Pay only the difference
-                </p>
-                <p className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan" /> Capped at $299 maximum
-                </p>
-                <p className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan" /> Fully adjusted payments
-                </p>
-              </div>
-              <div className="bg-background/40 p-4 rounded-xl border border-border/50">
-                <p className="font-bold text-foreground mb-2 font-sequel text-xs tracking-wider uppercase">
-                  Quick Math:
-                </p>
-                <div className="space-y-1 text-xs">
-                  <p className="flex justify-between">
-                    <span>Starter → AI Standard:</span>{" "}
-                    <span className="text-cyan font-bold">$51</span>
-                  </p>
-                  <p className="flex justify-between">
-                    <span>Starter → AI Pro:</span> <span className="text-cyan font-bold">$100</span>
-                  </p>
-                  <p className="flex justify-between">
-                    <span>Standard → AI Pro:</span> <span className="text-cyan font-bold">$49</span>
-                  </p>
-                </div>
-              </div>
+
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <p>• You only pay the difference in setup fees when upgrading</p>
+              <p>• Maximum setup fee is $299 total</p>
+              <p>• Any setup fee you've already paid is fully adjusted</p>
+              <p className="pt-2 font-medium text-foreground">Examples:</p>
+              <p>• Starter → AI Standard: Pay $51 extra</p>
+              <p>• Starter → AI Pro: Pay $100 extra</p>
+              <p>• AI Standard → AI Pro: Pay $49 extra</p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
       <PricingInquiryOverlay open={open} onClose={() => setOpen(false)} plan={selectedPlan} />

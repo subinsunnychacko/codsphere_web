@@ -1,7 +1,6 @@
 import { Linkedin, Twitter, Instagram } from "lucide-react";
 import Image from "next/image";
 import web_page_logo_white from "@/assets/Logo_Full.svg";
-import Link from "next/link";
 
 const quickLinks = [
   { name: "Home", href: "#" },
@@ -22,14 +21,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Logo + About */}
           <div className="md:col-span-1">
-            <Link href="/home" className="z-[70]">
+            <div className="flex items-center mb-4">
               <Image
                 src={web_page_logo_white}
                 alt="CodSphere logo"
                 className="object-contain h-[25px] sm:h-7 lg:h-8 w-auto"
                 priority
               />
-            </Link>
+            </div>
             <p className="text-background/60 text-sm">
               Conversational websites for service businesses
             </p>
