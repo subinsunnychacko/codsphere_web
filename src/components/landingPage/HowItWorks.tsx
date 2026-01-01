@@ -30,7 +30,7 @@ export function HowItWorks() {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#030617] via-[#020a3a]/30 to-[#030617]" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-20">
+      <div className="container-wrapper relative z-10 mx-auto max-w-7xl px-6 lg:px-20">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

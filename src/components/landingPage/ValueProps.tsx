@@ -11,7 +11,7 @@ const props = [
 export function ValueProps() {
   return (
     <section className="py-12 bg-background border-b border-border">
-      <div className="container mx-auto px-6 lg:px-20">
+      <div className="container-wrapper mx-auto px-6 lg:px-20">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {props.map((prop, index) => (
             <motion.div

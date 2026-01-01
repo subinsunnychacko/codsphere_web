@@ -22,7 +22,7 @@ const plans = [
 export function AIExplanation() {
   return (
     <section className="min-h-screen bg-slate-950 flex items-center py-20">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-20">
+      <div className="container-wrapper mx-auto w-full max-w-7xl px-6 lg:px-20">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -28,7 +28,7 @@ const testimonials = [
 export function Testimonials() {
   return (
     <section className="min-h-screen bg-gray-100 py-24 flex items-center">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-20">
+      <div className="container-wrapper mx-auto w-full max-w-7xl px-6 lg:px-20">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

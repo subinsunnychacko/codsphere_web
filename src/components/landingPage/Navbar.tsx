@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import web_page_logo_white from "@/assets/web-page-logo-icon-white.svg";
-import web_page_logo_dark from "@/assets/web-page-logo-icon-black.svg";
+import web_page_logo_white from "@/assets/Logo_Full.svg";
+import web_page_logo_dark from "@/assets/web-page-logo-black.svg";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -31,7 +31,7 @@ export function Navbar() {
         isScrolled ? "bg-background/95 backdrop-blur-md shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 lg:px-20">
+      <div className="container-wrapper mx-auto px-6 lg:px-20">
         <div className="flex items-center justify-between h-[66px]">
           {/* Logo */}
           <Link href="/" aria-label="CodSphere" className="flex items-stretch">

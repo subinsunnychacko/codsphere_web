@@ -27,7 +27,7 @@ const benefits = [
 export function ProblemSolution() {
   return (
     <section className="bg-slate-100 py-20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-20">
+      <div className="container-wrapper mx-auto max-w-7xl px-6 lg:px-20">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

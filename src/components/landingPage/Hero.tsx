@@ -20,7 +20,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-black/60" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-20 pt-20">
+      <div className="container-wrapper relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-20 pt-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
           <motion.div

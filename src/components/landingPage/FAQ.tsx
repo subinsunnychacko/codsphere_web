@@ -38,7 +38,7 @@ const faqs = [
 export function FAQ() {
   return (
     <section className="min-h-[110vh] bg-white py-28 flex items-center">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-20">
+      <div className="container-wrapper mx-auto w-full max-w-7xl px-6 lg:px-20">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

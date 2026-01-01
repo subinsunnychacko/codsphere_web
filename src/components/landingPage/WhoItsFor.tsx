@@ -24,7 +24,7 @@ const industries = [
 export function WhoItsFor() {
   return (
     <section className="min-h-screen bg-white flex items-center py-20">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-20">
+      <div className="container-wrapper mx-auto w-full max-w-7xl px-6 lg:px-20">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -60,7 +60,7 @@ export function Pricing() {
   return (
     <>
       <section id="pricing" className="py-20 bg-background">
-        <div className="mx-auto max-w-6xl px-6 lg:px-20">
+        <div className="container-wrapper mx-auto max-w-6xl px-6 lg:px-20">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

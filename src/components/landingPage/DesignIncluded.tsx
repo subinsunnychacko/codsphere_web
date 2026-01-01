@@ -12,7 +12,7 @@ const features = [
 export function DesignIncluded() {
   return (
     <section className="py-20 bg-gradient-to-b from-slate-100 to-white">
-      <div className="container mx-auto px-6 lg:px-20">
+      <div className="container-wrapper mx-auto px-6 lg:px-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* LEFT */}
           <motion.div

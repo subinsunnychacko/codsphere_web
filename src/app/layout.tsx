@@ -6,7 +6,7 @@ import "./globals.css";
 
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import Footer from "@/components/Footer";
-import ContactUsPopupBtn from "@/components/ContactUsPopupBtn";
+// import ContactUsPopupBtn from "@/components/ContactUsPopupBtn";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar2 from "@/components/Navbar2";
@@ -152,7 +152,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         <main>{children}</main>
-        <ContactUsPopupBtn />
+        {/* <ContactUsPopupBtn /> */}
       </body>
     </html>
   );

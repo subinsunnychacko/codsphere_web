@@ -14,7 +14,7 @@ export function FinalCTA() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-[#010B66]/60" />
       </div>
 
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-20 text-center">
+      <div className="container-wrapper mx-auto w-full max-w-7xl px-6 lg:px-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

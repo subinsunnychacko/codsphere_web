@@ -151,12 +151,8 @@ export default function PricingInquiryOverlay({ open, onClose, plan }: Props) {
                 type="submit"
                 className="h-[52px] w-full max-w-[360px] rounded-full bg-gradient-to-r from-[#34e0ff] to-[#1e3a8a] text-white font-semibold shadow-lg hover:brightness-105 transition"
               >
-                {loading ? "Sending..." : "Start 14-Day Free Trial"}
+                {loading ? "Sending..." : `START YOUR ${plan.name} PLAN`}
               </button>
-
-              <p className="text-xs text-gray-500">
-                You can cancel anytime before your trial ends.
-              </p>
             </div>
           </form>
         </div>

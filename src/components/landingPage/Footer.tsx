@@ -17,7 +17,7 @@ const legalLinks = [
 export function Footer() {
   return (
     <footer className="bg-foreground py-16">
-      <div className="container mx-auto px-6 lg:px-20">
+      <div className="container-wrapper mx-auto px-6 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Logo + About */}
           <div className="md:col-span-1">
@@ -72,7 +72,7 @@ export function Footer() {
           <div>
             <h4 className="font-heading font-semibold text-background mb-4">Contact</h4>
             <ul className="space-y-2 text-background/60 text-sm">
-              <li>hello@codsphere.com</li>
+              <li>info@codsphere.ca</li>
               <li>Vancouver, BC</li>
             </ul>
           </div>
