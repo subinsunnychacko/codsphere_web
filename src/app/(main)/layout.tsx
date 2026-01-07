@@ -1,7 +1,7 @@
 import Navbar2 from "@/components/Navbar2";
-import { Footer } from "@/components/landingPage/Footer";
 import Script from "next/script";
 import { Navbar } from "@/components/landingPage/Navbar";
+import Footer from "@/components/Footer";
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
