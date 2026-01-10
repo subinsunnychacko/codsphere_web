@@ -5,7 +5,7 @@ import * as React from "react";
 const faqs = [
   {
     q: "What makes CodSphere's CRM different from off-the-shelf tools like HubSpot or Zoho?",
-    a: "Unlike generic platforms, our CRM is built custom for your workflow. Whether you&apos;re managing sales pipelines, onboarding clients, or automating reminders, we tailor the logic, UI, and integrations to your exact business model — no unnecessary features, no workarounds.",
+    a: "Unlike generic platforms, our CRM is built custom for your workflow. Whether you're managing sales pipelines, onboarding clients, or automating reminders, we tailor the logic, UI, and integrations to your exact business model — no unnecessary features, no workarounds.",
   },
   {
     q: "Can you integrate your ERP system with my existing tools and software?",
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "How secure are your invoicing and automation tools?",
-    a: "We prioritise security from day one — using bank-grade encryption, secure login protocols, and GDPR-compliant architecture. Whether you&apos;re handling financial data or customer records, your system is protected end-to-end.",
+    a: "We prioritise security from day one — using bank-grade encryption, secure login protocols, and GDPR-compliant architecture. Whether you're handling financial data or customer records, your system is protected end-to-end.",
   },
 ];
 

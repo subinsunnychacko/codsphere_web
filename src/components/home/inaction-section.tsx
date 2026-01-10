@@ -34,7 +34,7 @@ export default function InActionSection() {
       title: "From Paper Logs To Cloud Intelligence",
       fd: "Making Mailrooms Smarter, Not Busier",
       description:
-        "Sortify moved from manual warehouse logs to real-time cloud analytics powered by CodeSphere.",
+        "A digital transformation success story from Sortify -reducing errors, cutting costs, and delighting users.",
       video: "/videos/hero-video.mp4",
       image: sortifyImage,
       hrefNav: "/case-studies/sortify",
