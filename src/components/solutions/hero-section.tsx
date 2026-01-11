@@ -66,7 +66,7 @@ export default function HeroSection() {
 
           <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md md:max-w-none justify-center md:justify-start mt-4">
             {/* EXPLORE BUTTON */}
-            <Link href="/services" className="w-full md:w-auto">
+            <Link href="/trade-demo/home" className="w-full md:w-auto">
               <button
                 className="
                   w-full md:w-auto h-[56px]
