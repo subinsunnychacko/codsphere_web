@@ -91,7 +91,6 @@ export default function Perks() {
         {/* Mobile View - Carousel with auto-rotation */}
         <div className="md:hidden mb-12">
           <div className="relative flex flex-col items-center gap-2 h-52">
-            <p className="text-md font-bold text-gray-600">Step {steps[currentStep].id}</p>
             {/* Icon Circle */}
             <div className="relative z-10">
               <div className="w-24 h-24 rounded-full bg-[#d9feff] border-4 border-gray-400 flex items-center justify-center">

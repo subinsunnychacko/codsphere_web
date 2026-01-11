@@ -50,7 +50,7 @@ export default function HighlightSection() {
         }
         image={
           <Image
-            src={"/images/profile-pic/rectangle.png"}
+            src={"/images/profile-pic/profile-pic-5.png"}
             alt="Audit Expert"
             fill
             className="object-cover"
