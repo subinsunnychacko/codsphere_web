@@ -16,7 +16,7 @@ export default function Navbar2() {
   const [forceHamburger, setForceHamburger] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const overlayRoutes = ["/", "/success-stories"];
+  const overlayRoutes = ["/", "/success-stories", "/solutions"];
   const isOverlayPage = overlayRoutes.includes(pathname);
 
   useEffect(() => {
@@ -134,6 +134,15 @@ export default function Navbar2() {
                 Services
               </Link>
               <Link
+                href="/solutions"
+                className={cn(
+                  "text-white text-[18px] hover:text-gray-300 transition-colors whitespace-nowrap border-2 border-transparent rounded-full px-4 py-1.5",
+                  pathname === "/solutions" && "bg-white text-black! border-white",
+                )}
+              >
+                Solutions
+              </Link>
+              <Link
                 href="/success-stories"
                 className={cn(
                   "text-white text-[16px] hover:text-gray-300 transition-colors whitespace-nowrap border-2 border-transparent rounded-full px-3 py-1",
@@ -192,6 +201,15 @@ export default function Navbar2() {
                 )}
               >
                 Services
+              </Link>
+              <Link
+                href="/solutions"
+                className={cn(
+                  "text-white text-[18px] hover:text-gray-300 transition-colors whitespace-nowrap border-2 border-transparent rounded-full px-4 py-1.5",
+                  pathname === "/solutions" && "bg-white text-black! border-white",
+                )}
+              >
+                Solutions
               </Link>
               <Link
                 href="/success-stories"
