@@ -1,5 +1,6 @@
 import { ArrowRight, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -31,29 +32,49 @@ export function Hero() {
             <span className="inline-block text-[hsl(var(--cyan))] text-sm font-semibold uppercase tracking-[3px] mb-4">
               AI-Powered Lead Capture
             </span>
-
             <h1 className="text-[36px] md:text-[48px] lg:text-[56px] font-semibold text-white leading-[1.05] mb-6 max-w-[620px]">
               Your AI Answers Inquiries, Qualifies Leads, and Captures Contacts Automatically
             </h1>
-
             <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 max-w-[520px]">
               Stop losing leads while you're on the job. CodSphere's AI works 24/7 to engage
               visitors, qualify prospects, and route them to you ready to close.
             </p>
+            <div className="flex flex-col sm:flex-row items-stretch gap-4 py-10">
+              {/* Primary CTA */}
+              <a
+                href="#pricing"
+                className="
+      inline-flex items-center justify-center gap-3
+      h-[56px] w-full sm:min-w-[240px]
+      rounded-lg px-8 font-semibold text-white
+      bg-[linear-gradient(135deg,#010B66_0%,#33FCFE_100%)]
+      transition-all duration-300
+      hover:shadow-lg hover:shadow-cyan-400/30
+    "
+              >
+                <ArrowRight className="w-5 h-5" />
+                Build Your Site Now
+              </a>
 
-            <a
-              href="#pricing"
-              className="
-                inline-flex items-center gap-3
-                rounded-lg px-8 py-4 font-semibold text-white
-                bg-[linear-gradient(135deg,#010B66_0%,#33FCFE_100%)]
-                transition-all duration-300
-                hover:shadow-lg hover:shadow-cyan-400/30
-              "
-            >
-              <ArrowRight className="w-5 h-5" />
-              Build Your Site Now
-            </a>
+              {/* Secondary CTA */}
+              <Link
+                href="/trade-demo/home"
+                className="
+      inline-flex items-center justify-center gap-3
+      h-[56px] w-full sm:min-w-[240px]
+      rounded-lg px-8 font-semibold
+      text-[hsl(var(--cyan))]
+      border border-[hsl(var(--cyan))]/40
+      bg-white/5 backdrop-blur
+      transition-all duration-300
+      hover:bg-[hsl(var(--cyan))]/10
+      hover:shadow-lg hover:shadow-cyan-400/20
+    "
+              >
+                <ArrowRight className="w-5 h-5" />
+                Explore the Template
+              </Link>
+            </div>
           </motion.div>
 
           {/* Right chat preview */}
