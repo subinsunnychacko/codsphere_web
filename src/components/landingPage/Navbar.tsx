@@ -34,14 +34,18 @@ export function Navbar() {
       <div className="container-wrapper mx-auto px-6 lg:px-20">
         <div className="flex items-center justify-between h-[66px]">
           {/* Logo */}
-          <Link href="/" aria-label="CodSphere" className="flex items-stretch">
+          <button
+            aria-label="Scroll to top"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="flex items-stretch"
+          >
             <Image
               src={isScrolled ? web_page_logo_dark : web_page_logo_white}
               alt="CodSphere logo"
               className="object-contain h-[25px] sm:h-7 lg:h-8 w-auto"
               priority
             />
-          </Link>
+          </button>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-2">
