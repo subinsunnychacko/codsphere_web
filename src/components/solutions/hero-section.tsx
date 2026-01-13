@@ -95,7 +95,7 @@ export default function HeroSection() {
             </Link>
 
             {/* FREE TRIAL BUTTON */}
-            <Link href="/start-free-trial" className="w-full md:w-auto">
+            <Link href="/cod-chat" className="w-full md:w-auto">
               <button
                 className="
                   w-full md:w-auto h-[56px]

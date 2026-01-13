@@ -16,7 +16,7 @@ export default function Navbar2() {
   const [forceHamburger, setForceHamburger] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const overlayRoutes = ["/", "/success-stories", "/solutions"];
+  const overlayRoutes = ["/", "/success-stories", "/solutions", "/cod-chat"];
   const isOverlayPage = overlayRoutes.includes(pathname);
 
   useEffect(() => {
