@@ -322,6 +322,14 @@ export default function Navbar2() {
                 Services
               </Link>
               <Link
+                href="/solutions"
+                className="py-3 sm:py-4 border-b border-gray-700 transition-colors hover:bg-gray-800 rounded-none"
+                onClick={toggleMenu}
+                style={{ color: "#ffffff", fontSize: "16px", fontWeight: "normal" }}
+              >
+                Services
+              </Link>
+              <Link
                 href="/success-stories"
                 className="py-3 sm:py-4 border-b border-gray-700 transition-colors hover:bg-gray-800 rounded-none"
                 onClick={toggleMenu}
