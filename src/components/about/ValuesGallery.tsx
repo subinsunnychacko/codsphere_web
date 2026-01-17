@@ -104,15 +104,26 @@ function ValueCard({ title, body, src, alt }: ValueItem) {
       <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:bg-black/50" />
 
       {/* Content - Responsive positioning and sizing */}
-      <div className="absolute bottom-0 left-0 p-4 md:p-6 lg:p-[30px] max-w-[280px] md:max-w-[290px] lg:max-w-[309px]">
+      <div className="absolute bottom-0 left-0 p-4 md:p-6 lg:p-[30px] max-w-[280px] md:max-w-[290px] lg:max-w-none">
         <h3
-          className="text-[18px] md:text-[22px] lg:text-[25px] leading-[22px] md:leading-[26px] lg:leading-[29px] font-medium text-white font-sequel mb-2 md:mb-2.5 lg:mb-3"
+          className="
+    text-[18px] leading-[22px]
+    md:text-[22px] md:leading-[26px]
+    lg:text-[22px] lg:leading-[26px]
+    font-medium text-white font-sequel
+    mb-2 md:mb-2.5 lg:mb-2.5
+  "
           style={{ textShadow: "0px 2px 4px rgba(0, 0, 0, 0.35)" }}
         >
           {title}
         </h3>
         <p
-          className="text-[16px] md:text-[20px] lg:text-[25px] leading-[20px] md:leading-[24px] lg:leading-[29px] font-normal text-white font-sequel"
+          className="
+    text-[16px] leading-[20px]
+    md:text-[20px] md:leading-[24px]
+    lg:text-[20px] lg:leading-[24px]
+    font-normal text-white font-sequel
+  "
           style={{ textShadow: "0px 2px 4px rgba(0, 0, 0, 0.35)" }}
         >
           {body}

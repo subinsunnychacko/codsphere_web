@@ -8,13 +8,13 @@ const steps = [
   {
     id: 1,
     title: "Low-quality leads",
-    description: "Visitors inquire, but aren’t ready to hire.",
+    description: "Visitors inquire, but aren't ready to hire.",
     icon: "/icons/archery.svg",
   },
   {
     id: 2,
     title: "No trust signals",
-    description: "Customers don’t see proof, reviews or credibility.",
+    description: "Customers don't see proof, reviews or credibility.",
     icon: "/icons/shield.svg",
   },
   {
@@ -26,7 +26,7 @@ const steps = [
   {
     id: 4,
     title: "Confusing calls-to-action",
-    description: "Users don’t know what to do next.",
+    description: "Users don't know what to do next.",
     icon: "/icons/lucide_square-mouse-pointer.svg",
   },
 ];
@@ -47,16 +47,22 @@ export default function Perks() {
   };
 
   return (
-    <section className="w-full">
+    <section
+      className="w-full"
+      style={{
+        background:
+          "linear-gradient(180deg, #3d4555 0%, #4a5260 10%, #5d636f 20%, #7a818b 30%, #9ca3ad 40%, #bec3c9 50%, #d8dbdf 60%, #eaebee 75%, #f3f4f6 100%)",
+      }}
+    >
       <div className="container-wrapper py-12 lg:py-16 xl:py-20">
         <div className="text-center w-5/5 lg:w-4/5 mx-auto pb-4">
-          <p className="font-damion text-[30px] sm:text-[35px] text-[#a8a8a8]">
+          <p className="font-damion text-[30px] sm:text-[35px] text-[#a8a8a8] italic">
             What this template fixes!
           </p>
-          <h2 className="text-[25px] sm:text-[30px] lg:text-[40px] font-semibold">
-            What’s holding most trade websites back?
+          <h2 className="text-[25px] sm:text-[30px] lg:text-[40px] font-semibold text-white">
+            What's holding most trade websites back?
           </h2>
-          <p className="mt-2 text-[18px] lg:text-[20px] font-light w-full">
+          <p className="mt-2 text-[18px] lg:text-[20px] font-light w-full text-gray-200">
             Through research and real trade workflows, we identified common issues that stop
             websites from converting visitors into real jobs.
           </p>

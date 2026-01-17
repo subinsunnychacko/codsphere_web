@@ -132,36 +132,6 @@ export function BlogGrid() {
           </article>
         ))}
       </div>
-
-      {/* View More Button */}
-      <div className="flex justify-center">
-        <button
-          onClick={handleViewMore}
-          className="group flex items-center gap-3 opacity-50 cursor-not-allowed h-[60px] md:h-[70px] lg:h-[85px] px-6 md:px-8 lg:px-[26px_12px] bg-[#0D0D0D] rounded-[30px] md:rounded-[35px] lg:rounded-[42.5px] shadow-[4px_4px_12px_rgba(0,0,0,0.15)] hover:shadow-xl transition-all"
-          disabled
-        >
-          <span className="font-sequel font-[405] text-[20px] md:text-[25px] lg:text-[30px] leading-[24px] md:leading-[30px] lg:leading-[35px] text-white mr-3 md:mr-4 lg:mr-auto ml-2 md:ml-4 lg:ml-[10px]">
-            View More
-          </span>
-          <div className="flex items-center justify-center w-[30px] h-[30px] md:w-[35px] md:h-[35px] lg:w-[39px] lg:h-[39px] bg-white rounded-full mr-2 md:mr-3 lg:mr-[14px]">
-            <svg
-              width="18"
-              height="17"
-              viewBox="0 0 22 21"
-              fill="none"
-              className="w-4 h-4 md:w-5 md:h-5 lg:w-[22px] lg:h-[21px]"
-            >
-              <path
-                d="M5 10.5H17M17 10.5L11 4.5M17 10.5L11 16.5"
-                stroke="#000000"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-        </button>
-      </div>
     </div>
   );
 }

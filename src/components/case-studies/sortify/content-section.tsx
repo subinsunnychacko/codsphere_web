@@ -139,7 +139,7 @@ export default function ContentSection() {
       <div className="space-y-4 sm:space-y-8">
         {/* Header section */}
         <div className="space-y-3">
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight">
             From manual logging chaos to a cloud-native, fully automated delivery system.
           </h2>
           <div className="text-base md:text-lg">

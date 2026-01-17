@@ -26,7 +26,7 @@ export default function FeaturesSection() {
       <div className="container-wrapper py-more">
         {/* headings */}
         <div className="text-center w-full lg:w-full xl:w-full mx-auto pb-6 md:pb-12">
-          <h2 className="text-[40px] sm:text-[30px] lg:text-[40px] font-semibold">
+          <h2 className="text-[30px] sm:text-[30px] lg:text-[40px] font-semibold">
             Designed to fix the gaps. Not just look Good!
           </h2>
           <p className="mt-2 text-[20px] font-light">

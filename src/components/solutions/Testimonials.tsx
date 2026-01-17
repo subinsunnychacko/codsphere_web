@@ -33,10 +33,10 @@ const testimonials: Testimonial[] = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="container-wrapper pt-12 lg:pt-16 xl:pt-20 pb-12 lg:pb-14 bg-white overflow-hidden">
+    <section className="container-wrapper pt-12 lg:pt-16 xl:pt-12 pb-12 lg:pb-14 bg-white overflow-hidden">
       <div className="text-center max-w-5xl mx-auto pb-4 md:pb-10 flex flex-col items-center">
         {/* <p className="font-damion text-[30px] sm:text-[35px] text-[#828282]"></p> */}
-        <h2 className="text-[48px] sm:text-[30px] lg:text-[48px] font-semibold">
+        <h2 className="text-[30px] sm:text-[30px] lg:text-[48px] font-semibold">
           Built with real service businesses in mind
         </h2>
         <p className="mt-2 text-[20px] lg:text-[20px] font-light leading-relaxed max-w-4xl">

@@ -15,19 +15,22 @@ export default function WalkThroughSection2() {
           </p>
         </div>
 
-        {/* Video section */}
-        <div className="mb-12 flex justify-center relative h-124 rounded-xl overflow-hidden">
-          <Image
-            src="/images/home/work-samples/work-sample-5.jpg"
-            alt="CodSphere in action"
-            fill
-            className="object-cover"
-          />
+        {/* Video section - Responsive image container with aspect ratio */}
+        <div className="mb-12 flex justify-center">
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden">
+            <Image
+              src="/images/home/work-samples/work-sample-5.jpg"
+              alt="CodSphere in action"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
+            />
+          </div>
         </div>
 
         {/* CTA */}
         <div className="text-center">
-          <p className="text-2xl font-bold mb-4">
+          <p className="text-xl sm:text-2xl font-bold mb-4">
             Prefer a quick overview? Download our product brochure for a deep dive into CRM + ERP +
             Analytics.
           </p>

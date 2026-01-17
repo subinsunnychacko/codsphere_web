@@ -12,20 +12,39 @@ export default function HeroSection() {
         -mt-20 sm:-mt-[88px] lg:-mt-[104px]
         pt-[80px] md:pt-[88px] lg:pt-[104px]
         pb-14
-        bg-black bg-linear-to-r from-black to-[#0664a7]
+        bg-[#0a1628]
       "
     >
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-      >
-        <source src="/videos/Solutions_Hero_Video.mp4" type="video/mp4" />
-      </video>
+      {/* Video positioned to the right */}
+      <div className="absolute inset-0 flex justify-end">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="h-full w-full md:w-[70%] lg:w-[65%] object-cover object-center pointer-events-none"
+        >
+          <source src="/videos/Solutions_Hero_Video.mp4" type="video/mp4" />
+        </video>
+      </div>
 
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Gradient overlay - dark on left, transparent on right */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to right, #0a1628 0%, #0a1628 30%, rgba(10, 22, 40, 0.85) 50%, rgba(10, 22, 40, 0.4) 70%, rgba(10, 22, 40, 0.2) 100%)",
+        }}
+      />
+
+      {/* Additional top-to-bottom gradient for better blending */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(10, 22, 40, 0.3) 0%, transparent 30%, transparent 70%, rgba(10, 22, 40, 0.5) 100%)",
+        }}
+      />
 
       <div
         className="
@@ -48,7 +67,7 @@ export default function HeroSection() {
               xl:text-[46px]
             "
           >
-            Most trade websites don’t work. This one is built around real pain points.
+            Most trade websites don't work. This one is built around real pain points.
           </h1>
 
           <p
@@ -66,7 +85,7 @@ export default function HeroSection() {
 
           <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md md:max-w-none justify-center md:justify-start mt-4">
             {/* EXPLORE BUTTON */}
-            <Link href="/trade-demo/home" className="w-full md:w-auto">
+            <Link href="/trade-demo/home" target="_blank" className="w-full md:w-auto">
               <button
                 className="
                   w-full md:w-auto h-[56px]
@@ -95,7 +114,7 @@ export default function HeroSection() {
             </Link>
 
             {/* FREE TRIAL BUTTON */}
-            <Link href="/cod-chat" className="w-full md:w-auto">
+            <Link href="/cod-chat" target="_blank" className="w-full md:w-auto">
               <button
                 className="
                   w-full md:w-auto h-[56px]
@@ -103,16 +122,21 @@ export default function HeroSection() {
                   border-2 border-white
                   text-[14px] md:text-[15px]
                   px-8
-                  flex justify-center items-center
+                  flex justify-center items-center gap-2
                   hover:bg-white hover:text-black
                   transition-all
                   active:scale-95
                 "
               >
                 Capture leads with CodChat
+                <ArrowRight size={18} />
               </button>
             </Link>
           </div>
+
+          <p className="text-sm text-white/70 mt-2">
+            Starting with electricians more trade templates coming soon.
+          </p>
         </div>
       </div>
     </section>

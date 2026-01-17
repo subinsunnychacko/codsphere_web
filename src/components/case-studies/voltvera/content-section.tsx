@@ -165,7 +165,7 @@ export default function ContentSection() {
       <div className="space-y-4 sm:space-y-8">
         {/* Header section */}
         <div className="space-y-3">
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight">
             Scaling Franchise Operations with Voltvera's Smart MLM Automation Platform
           </h2>
           <div className="text-base md:text-lg">
@@ -259,8 +259,9 @@ export default function ContentSection() {
         </div>
         {/* Testimonial section */}
         <Testimonial>
-          "Sortify transformed our mailroom chaos into a digital command center — faster,
-          transparent, and completely automated." — Facilities Manager, Corporate Client (2025)
+          "CodSphere transformed our franchise operations into a real-time automation engine —
+          faster, transparent, and completely scalable." — Operations Manager, Voltvera India Pvt.
+          Ltd. (2025)
         </Testimonial>
       </div>
     </section>

@@ -19,20 +19,24 @@ export default function WalkThroughSection1() {
           </p>
         </div>
 
-        <div className="mb-12 flex justify-center relative h-124 rounded-xl overflow-hidden">
-          <Image
-            src="/images/home/work-samples/work-sample-13.png"
-            alt="How Codsphere works"
-            fill
-            priority
-            className="object-cover"
-          />
+        {/* Responsive image container with aspect ratio */}
+        <div className="mb-12 flex justify-center">
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden">
+            <Image
+              src="/images/home/work-samples/work-sample-13.png"
+              alt="How Codsphere works"
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
+            />
+          </div>
         </div>
 
         {/* Steps */}
         <div className="flex justify-center mb-5">
           <div className="text-start">
-            <p className="text-[20px] font-light">
+            <p className="text-base sm:text-lg md:text-[20px] font-light">
               <span className="block">
                 Step 1: Create your account and personalize your workspace.
               </span>
@@ -48,7 +52,9 @@ export default function WalkThroughSection1() {
 
         {/* CTA */}
         <div className="text-center">
-          <p className="text-2xl font-bold mb-4">Ready to see why 100+ teams trust CodSphere?</p>
+          <p className="text-xl sm:text-2xl font-bold mb-4">
+            Ready to see why 100+ teams trust CodSphere?
+          </p>
           <Link href="/success-stories">
             <button className="rounded-full bg-linear-to-r from-[#33FCFE] to-[#010B66] text-white text-[15px] lg:text-[18px] p-[3px]">
               <div className="flex justify-center items-center gap-3 rounded-full px-4 py-3 bg-black hover:bg-gray-800">

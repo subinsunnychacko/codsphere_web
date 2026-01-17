@@ -74,7 +74,7 @@ export default function ServicesSection() {
                 <div className="bg-white text-black rounded-full p-0.5">
                   <ArrowRight />
                 </div>
-                Explore Our Solutions
+                Explore Our Services
               </div>
             </button>
           </Link>

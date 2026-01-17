@@ -1,7 +1,8 @@
 "use client";
 import { Star } from "lucide-react";
+import gsap from "gsap";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export interface Testimonial {
   id: string;
@@ -13,43 +14,59 @@ export interface Testimonial {
 
 export default function TestimonialCards({ testimonials }: { testimonials: Testimonial[] }) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [isScrolling, setIsScrolling] = useState(true);
-  const [scrollDirection, setScrollDirection] = useState<"left" | "right">("left");
+  const tweenRef = useRef<gsap.core.Tween | null>(null);
 
   useEffect(() => {
-    if (!isScrolling || !scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    if (!container) return;
 
-    const interval = setInterval(() => {
-      const container = scrollContainerRef.current;
-      if (!container) return;
+    const scrollWidth = container.scrollWidth - container.clientWidth;
 
-      const { scrollLeft, scrollWidth, clientWidth } = container;
-      const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 10;
-      const isAtStart = scrollLeft <= 10;
+    // Create GSAP timeline for continuous back-and-forth scrolling
+    const createScrollAnimation = () => {
+      tweenRef.current = gsap.to(container, {
+        scrollLeft: scrollWidth,
+        duration: scrollWidth / 50, // Adjust speed (higher = slower)
+        ease: "none",
+        onComplete: () => {
+          // Scroll back to start
+          tweenRef.current = gsap.to(container, {
+            scrollLeft: 0,
+            duration: scrollWidth / 50,
+            ease: "none",
+            onComplete: createScrollAnimation, // Loop
+          });
+        },
+      });
+    };
 
-      if (isAtEnd && scrollDirection === "left") {
-        setScrollDirection("right");
-      } else if (isAtStart && scrollDirection === "right") {
-        setScrollDirection("left");
+    createScrollAnimation();
+
+    return () => {
+      if (tweenRef.current) {
+        tweenRef.current.kill();
       }
+    };
+  }, [testimonials]);
 
-      const scrollAmount = window.innerWidth >= 1280 ? 2 : 4;
-      if (scrollDirection === "left") {
-        container.scrollLeft += scrollAmount;
-      } else {
-        container.scrollLeft -= scrollAmount;
-      }
-    }, 30);
+  const handleMouseEnter = () => {
+    if (tweenRef.current) {
+      tweenRef.current.pause();
+    }
+  };
 
-    return () => clearInterval(interval);
-  }, [scrollDirection, isScrolling]);
+  const handleMouseLeave = () => {
+    if (tweenRef.current) {
+      tweenRef.current.resume();
+    }
+  };
 
   return (
     <div
       ref={scrollContainerRef}
       className="flex gap-4 overflow-x-auto scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-      onMouseEnter={() => setIsScrolling(false)}
-      onMouseLeave={() => setIsScrolling(true)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {testimonials.map((testimonial) => (
         <div
