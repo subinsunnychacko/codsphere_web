@@ -327,7 +327,7 @@ export default function Navbar2() {
                 onClick={toggleMenu}
                 style={{ color: "#ffffff", fontSize: "16px", fontWeight: "normal" }}
               >
-                Services
+                Solutions
               </Link>
               <Link
                 href="/success-stories"
