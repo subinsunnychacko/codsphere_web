@@ -35,7 +35,7 @@ export default function TestimonialsSection() {
   return (
     <section className="container-wrapper pt-12 lg:pt-16 xl:pt-20 pb-12 lg:pb-14 bg-white overflow-hidden">
       <div className="text-center max-w-5xl mx-auto pb-4 md:pb-10 flex flex-col items-center">
-        <h2 className="text-[48px] sm:text-[30px] lg:text-[48px] font-semibold">
+        <h2 className="text-[30px] sm:text-[30px] lg:text-[48px] font-semibold">
           What Trades Are Saying After Adding CodChat
         </h2>
         <p className="mt-2 text-[20px] lg:text-[20px] font-light leading-relaxed max-w-4xl">
